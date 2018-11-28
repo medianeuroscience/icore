@@ -3,4 +3,4 @@ This project introduces the interface for Communication Research (iCoRe) to acce
 
 When using iCoRe, please consider citing this article:
 
-Hopp, F. R., Schaffer, J., Fisher, J. T., Cornell, D., & Weber, R. (under review) iCoRe: The GDELT Interface for the Advancement of Communication Research. 
+Hopp, F. R., Schaffer, J., Fisher, J. T., Cornell, D., & Weber, R. (under review). iCoRe: The GDELT Interface for the Advancement of Communication Research. 
