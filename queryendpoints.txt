@@ -1,4 +1,5 @@
 Queries used throughout case study 1 – 3:
+To execute a query, simply copy the link into a web-browser and wait for the query to return a CSV. 
 
 Case Study 1.) Climate Change Framing
 http://169.231.235.242:5000/monasparkclient/direct?data=gkg&year=2017&location=US&theme=ENV_CLIMATECHANGE&sources=(breitbart.com,foxnews.com,huffingtonpost.com,nytimes.com)
