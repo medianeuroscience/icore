@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iCoRe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Set the tab, home page, shortcut icons -->
+    <link rel="Shortcut Icon" href="img/icore_16px.png">
+
+    <!-- For minification, comment out this link -->
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/screen.css"/>
+
+    <!-- Set viewport scaling and zoom features -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+	<div class="header">
+        <h1 style="font-family: Ubuntu;font-size: 25px;font-style: normal;font-variant: normal;font-weight: lighter;margin: 0;line-height: 50px;vertical-align: middle;width: 26em; position: fixed; left: 33%;"><a href="index.html" style="color:#febf36;text-decoration:none">iCoRe - The GDELT Interface for Communication Research</a> </h1>
+	</div>
+    <div class="intro">
+        <h3>Getting Started</h3>
+        <hr class="hr">
+        <p> Welcome to iCoRe! iCoRe was designed to provide fast, intuitive, and scalable access to the <a href="https://www.gdeltproject.org/" target="_blank" style="color:#ff7f7f;text-decoration:none">Global Database of Events, Language and Tone</a> (GDELT).
+            The primary goal of iCoRe is the advancement of communication research centered around online news, event forecasting, and framing networks.
+            This tutorial provides a short documentation of how to use and get started with iCoRe. For a more detailed discussion of iCoRe's features, capabilities, and applications,
+        we recommend users to read the respective <a href="#" style="color:#ff7f7f;text-decoration:none">companion paper</a>.</p>
+        <hr class="hr">
+        <h3>Technical Backend</h3>
+        <p> iCoRe is based on a distributed database (Apache Cassandra) across a virtual cluster provided by the Aristotle Cloud Federation.
+            iCoRe contains multiple tables to store the GDELT data according to different partition keys to speed up queries that span, for example, certain locations or time periods.
+            Queries are driven by the DataStax Cassandra connector, with a lightweight front end written in Java and hosted in Apache Tomcat.
+            Cassandra queries are enhanced by Apache Spark support, which allows for efficient complex queries, such as as filters and joins.
+            Each query consists of an HTTP request, where the endpoint specifies the data source and the URL query string specifies the filters or constraints on the data.
+            Users will be able to acquire data in CSV or JSON formats depending on need.</p>
+        <hr class="hr">
+        <img src="img/icore_structure.png" alt="icore" style="width:650px;height:200px; position: relative;">
+    <div class="footer">
+        <p style="font-family: Ubuntu;font-size: 15px;font-style: normal;font-variant: normal;font-weight: lighter;margin: 0;line-height: 100px;vertical-align: middle;"> A project of the <a href="https://www.medianeuroscience.org/" style="color:#febf36;text-decoration:none">Media Neuroscience Lab</a> and <a href="https://federatedcloud.org/" style="color:#febf36;text-decoration:none">Aristotle Cloud Federation</a>  </p>
+    </div>
+</body>
+</html>

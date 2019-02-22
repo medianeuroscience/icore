@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iCoRe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Set the tab, home page, shortcut icons -->
+    <link rel="Shortcut Icon" href="img/icore_16px.png">
+    <!--<link rel="apple-touch-icon" href="img/aerogear_avatar_48px.png"/>-->
+
+    <!-- For minification, comment out this link -->
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/screen.css"/>
+
+    <!-- Set viewport scaling and zoom features -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#gkg-button").click(function(){
+                $("#gkg-query").toggle(700);
+                $("#event-query").hide();
+            });
+            $("#event-button").click(function(){
+                $("#event-query").toggle(700);
+                $("#gkg-query").hide();
+            });
+            $("#form.ajax").on("click", function () {
+                return false;
+             });
+            $("#gkg-query").submit(function(e) {
+                $("#gkg-query").toggle(700);
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="header">
+    <h1 style="font-family: Ubuntu;font-size: 25px;font-style: normal;font-variant: normal;font-weight: lighter;margin: 0;line-height: 50px;vertical-align: middle;width: 26em; position: fixed; left: 33%;"><a href="index.html" style="color:#febf36;text-decoration:none">iCoRe - The GDELT Interface for Communication Research</a> </h1>
+</div>
+<div class="intro">
+    <h2>Query Dashboard</h2>
+    <hr class="hr">
+    <p> Please indicate whether you would like to query <b>news</b> metadata from the Global Knowledge Graph (GKG) or <b>event</b> metadata from the Event Database.</p>
+    <div class="wrapper">
+    <a type="button" id="gkg-button" href="#" class="square_btn35" style=" padding: 0.1em 2em; text-align: justify">GKG</a>
+    <a type="button" id="event-button" href="#" class="square_btn35" style=" padding: 0.1em 2em; text-align: justify">EVENTS</a>
+    </div>
+    <br>
+    <div class="controlls">
+    <form action="http://169.231.235.96:5000/icore/direct?data=gkg" id="gkg-query" class="ajax" method="post">
+        <b>Year</b><br>
+        <input type="text" name="year" value="2017" class="query-option"> <br><br>
+        <b>Month</b><br>
+        <input type="text" name="month" value="01-03" class="query-option"><br><br>
+        <b>News Source Location</b><br>
+        <input type="text" name="location" value="US" class="query-option"><br><br>
+        <!--<b>News Sources</b><br>-->
+        <!--<input type="text" name="sources" value="foxnews.com, breitbart.com"><br><br>-->
+        <b>Topic</b><br>
+        <input type="text" name="theme" value="IMMIGRATION" class="query-option"><br><br>
+        <b>Entities</b><br>
+        <input type="text" name="entities" value="donald_trump" class="query-option"><br><br>
+        <input type="submit" value="Submit Query" style="position: relative; left: 52px; font-family: Ubuntu; font-size: 13px;">
+    </form>
+    <form action="/direct?data=event" id="event-query" target="_blank" method="post">
+        <b>Year</b><br>
+        <input type="text" name="year" value="2016" class="query-option"><br><br>
+        <b>Month</b><br>
+        <input type="text" name="month" value="01-03" class="query-option"><br><br>
+        <input type="submit" value="Submit Query">
+        <!--<input onclick="window.location.href = 'load_query.html';" type="submit" value="Submit Query">-->
+    </form>
+    </div>
+    <h2>Analysis Dashboard</h2>
+    <hr class="hr">
+    <p>Coming soon!</p>
+
+    <div class="footer">
+        <p style="font-family: Ubuntu;font-size: 15px;font-style: normal;font-variant: normal;font-weight: lighter;margin: 0;line-height: 100px;vertical-align: middle;"> A project of the <a href="https://www.medianeuroscience.org/" style="color:#febf36;text-decoration:none">Media Neuroscience Lab</a> and <a href="https://federatedcloud.org/" style="color:#febf36;text-decoration:none">Aristotle Cloud Federation</a></p>
+    </div>
+</div>
+
+</body>
+</html>
