@@ -19,6 +19,38 @@
 
     <script>
         $(document).ready(function(){
+            // Make a dropdown with country locations
+            var country_dropdown = $('#country-dropdown');
+            country_dropdown.empty();
+
+            country_dropdown.append('<option selected="true" disabled>Choose News Source Location</option>');
+            country_dropdown.prop('selectedIndex', 0);
+
+            var country_url = 'data/serialized_countries.json';
+
+            $.getJSON(country_url, function (data) {
+                $.each(data, function (key, entry) {
+                    country_dropdown.append($('<option></option>').attr('value', entry.value).text(entry.name));
+                })
+            });
+
+            // Make a dropdown with topics
+            var topic_dropdown = $('#topic-dropdown');
+            topic_dropdown.empty();
+
+            topic_dropdown.append('<option selected="true" disabled>Choose Topic</option>');
+            topic_dropdown.prop('selectedIndex', 0);
+
+            var topic_url = 'data/serialized_themes.json';
+
+            $.getJSON(topic_url, function (data) {
+                $.each(data, function (key, entry) {
+                    topic_dropdown.append($('<option></option>').attr('value', entry.value).text(entry.name));
+                })
+            });
+        });
+
+        $(document).ready(function(){
             $("#gkg-button").click(function(){
                 $("#gkg-query").toggle(700);
                 $("#event-query").hide();
@@ -27,13 +59,18 @@
                 $("#event-query").toggle(700);
                 $("#gkg-query").hide();
             });
-            $("#form.ajax").on("click", function () {
+        });
+
+        $(document).ready(function(){
+            $(document).on("submit", "#form.ajax", function() {
                 return false;
-             });
+            });
             $("#gkg-query").submit(function(e) {
                 $("#gkg-query").toggle(700);
             });
         });
+
+
     </script>
 </head>
 
@@ -57,22 +94,20 @@
         <b>Month</b><br>
         <input type="text" name="month" value="01-03" class="query-option"><br><br>
         <b>News Source Location</b><br>
-        <input type="text" name="location" value="US" class="query-option"><br><br>
-        <!--<b>News Sources</b><br>-->
-        <!--<input type="text" name="sources" value="foxnews.com, breitbart.com"><br><br>-->
+        <!--<input type="text" name="location" value="US" class="query-option" id="country-dropdown"><br><br>-->
+        <select id="country-dropdown" name="location"></select><br><br>
         <b>Topic</b><br>
-        <input type="text" name="theme" value="IMMIGRATION" class="query-option"><br><br>
+        <select id="topic-dropdown" name="theme"></select><br><br>
         <b>Entities</b><br>
         <input type="text" name="entities" value="donald_trump" class="query-option"><br><br>
         <input type="submit" value="Submit Query" style="position: relative; left: 52px; font-family: Ubuntu; font-size: 13px;">
     </form>
-    <form action="/direct?data=event" id="event-query" target="_blank" method="post">
+    <form action="http://169.231.235.96:5000/icore/direct?data=event" id="event-query" target="_blank" method="post">
         <b>Year</b><br>
         <input type="text" name="year" value="2016" class="query-option"><br><br>
         <b>Month</b><br>
         <input type="text" name="month" value="01-03" class="query-option"><br><br>
         <input type="submit" value="Submit Query">
-        <!--<input onclick="window.location.href = 'load_query.html';" type="submit" value="Submit Query">-->
     </form>
     </div>
     <h2>Analysis Dashboard</h2>

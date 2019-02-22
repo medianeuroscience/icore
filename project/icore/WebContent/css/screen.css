@@ -199,6 +199,7 @@ hr {
     display: none;
     border-radius: 25px;
     border-style: solid;
+    border-color: #ff7f7f;
     border-width: 1px;
     padding: 10px;
 }
@@ -207,6 +208,7 @@ hr {
     display: none;
     border-radius: 25px;
     border-style: solid;
+    border-color: #ff7f7f;
     border-width: 1px;
     padding: 10px;
 }
@@ -240,4 +242,9 @@ border-radius: 7px;
     padding:2px;
     font-family: Ubuntu;
     font-size: 13px;
+}
+
+li{
+    margin: 10px 0;
+    font-size: 15px;
 }
