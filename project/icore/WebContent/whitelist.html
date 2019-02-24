@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iCoRe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Set the tab, home page, shortcut icons -->
+    <link rel="Shortcut Icon" href="img/icore_16px.png">
+
+    <!-- For minification, comment out this link -->
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/screen.css"/>
+
+    <!-- Set viewport scaling and zoom features -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <p><a href="index.html" style="color:#febf36;text-decoration:none">iCoRe - The GDELT Interface for Communication Research</a> </p>
+    </header>
+        <div class="get_started">
+            <h3>Source Whitelist</h3>
+            <hr class="hr">
+            <p> Instead of querying all of the thousand sources monitored by GDELT, iCoRe is currently drawing on a specifically constructed and extendable whitelist of 111 international,
+                major news outlets. The rationale behind pre-selecting major news sources is to exclude rather insignificant sources for large-scale communication research (i.e., sources with
+                a small audience) and to maintain a focus on news reporting, thereby excluding non-news websites (such as blogs or classified advertisements) that are also monitored by GDELT.
+                In addition, for each source, iCoRe provides its country of origin, whether it is state run or not, and its political orientation (conservative, centrist, liberal) - information
+                that GDELT does not provide. This information was gathered with the help of research assistants who collected information on a news outlet through the source’s website and online
+                encyclopedias. iCoRe in turn allows the selection of articles from any of the 111 whitelisted sources, along with the stored metadata of a given news outlet. Furthermore, iCoRe currently
+                only considers news outlets in English language or which features an English online version. Yet, in near future iCoRe will extend its list of major news sources by including non-English
+                language sources using GDELT’s various translation capabilities.
+                <br>
+            <hr class="hr">
+                <div id="viz"></div>
+                <script>
+
+                d3.text("data/whitelist.csv", function(datasetText) {
+
+                var parsedCSV = d3.csv.parseRows(datasetText);
+
+                var sampleHTML = d3.select("#viz")
+                .append("table")
+                .style("border-collapse", "collapse")
+                .style("border", "1px grey solid")
+
+                .selectAll("tr")
+                .data(parsedCSV)
+                .enter().append("tr")
+
+                .selectAll("td")
+                .data(function(d){return d;})
+                .enter().append("td")
+                .style("border", "1px black solid")
+                .style("padding", "5px")
+                .on("mouseover", function(){d3.select(this).style("background-color", "#ff7f7f")})
+                .on("mouseout", function(){d3.select(this).style("background-color", "white")})
+                .text(function(d){return d;})
+                .style("font-family", "Ubuntu");
+
+                });
+                </script>
+
+                </p>
+        </div>
+        <div class="footer">
+        <p>Media Neuroscience Lab</a> and <a href="https://federatedcloud.org/" style="color:#febf36;text-decoration:none">Aristotle Cloud Federation</a>  </p>
+    </div>
+</body>
+</html>
