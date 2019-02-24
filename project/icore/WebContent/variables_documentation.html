@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iCoRe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Set the tab, home page, shortcut icons -->
+    <link rel="Shortcut Icon" href="img/icore_16px.png">
+
+    <!-- For minification, comment out this link -->
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/screen.css"/>
+
+    <!-- Set viewport scaling and zoom features -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <p><a href="index.html" style="color:#febf36;text-decoration:none">iCoRe - The GDELT Interface for Communication Research</a> </p>
+    </header>
+        <div class="get_started">
+            <h3>Documentation of Variables</h3>
+            <hr class="hr">
+            <p> Below we provide a documentation of the themes and topics that are extracted by GDELT, as well as an overview of the dictionaries
+                that are available in the GCAM string of the GKG.
+                <br>
+            <h4 id="themes"><a style="color:#ff7f7f;text-decoration:none; font-weight: lighter" href="#">GKG Themes</a></h4>
+            <div id="themes_viz"></div>
+            <h4 id="dictionaries"><a style="color:#ff7f7f;text-decoration:none; font-weight: lighter" href="#">Overview of Dictionaries</a></h4>
+            <div id="dicts_viz"></div>
+            <hr class="hr">
+
+                <script>
+                $(document).ready(function () {
+                    $("#themes_viz").hide();
+                    $("#dicts_viz").hide()
+
+                $("#themes").click(function(){
+                    $("#themes_viz").toggle(700);
+                });
+
+                $("#dictionaries").click(function(){
+                    $("#dicts_viz").toggle(700);
+                });
+
+                d3.text("data/themes.csv", function(datasetText) {
+
+                var parsedCSV = d3.csv.parseRows(datasetText);
+
+                var sampleHTML = d3.select("#themes_viz")
+                .append("table")
+                .style("border-collapse", "collapse")
+                .style("border", "1px grey solid")
+
+                .selectAll("tr")
+                .data(parsedCSV)
+                .enter().append("tr")
+
+                .selectAll("td")
+                .data(function(d){return d;})
+                .enter().append("td")
+                .style("border", "1px black solid")
+                .style("padding", "5px")
+                .on("mouseover", function(){d3.select(this).style("background-color", "#ff7f7f")})
+                .on("mouseout", function(){d3.select(this).style("background-color", "white")})
+                .text(function(d){return d;})
+                .style("font-family", "Ubuntu");
+
+                });
+
+                d3.text("data/dicts.csv", function(datasetText) {
+
+                    var parsedCSV = d3.csv.parseRows(datasetText);
+
+                    var sampleHTML = d3.select("#dicts_viz")
+                        .append("table")
+                        .style("border-collapse", "collapse")
+                        .style("border", "1px grey solid")
+
+                        .selectAll("tr")
+                        .data(parsedCSV)
+                        .enter().append("tr")
+
+                        .selectAll("td")
+                        .data(function(d){return d;})
+                        .enter().append("td")
+                        .style("border", "1px black solid")
+                        .style("padding", "5px")
+                        .on("mouseover", function(){d3.select(this).style("background-color", "#ff7f7f")})
+                        .on("mouseout", function(){d3.select(this).style("background-color", "white")})
+                        .text(function(d){return d;})
+                        .style("font-family", "Ubuntu");
+
+                });
+
+                });
+
+                </script>
+
+                </p>
+        </div>
+        <div class="footer">
+        <p>Media Neuroscience Lab</a> and <a href="https://federatedcloud.org/" style="color:#febf36;text-decoration:none">Aristotle Cloud Federation</a>  </p>
+    </div>
+</body>
+</html>
