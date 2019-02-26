@@ -10,3 +10,5 @@ Please allow binder up to 60 seconds for the environment to load and install nec
 When using iCoRe, please consider citing this article:
 
 Hopp, F. R., Schaffer, J., Fisher, J. T., & Weber, R. (under review). iCoRe: The GDELT Interface for the Advancement of Communication Research. 
+
+![icore](https://github.com/medianeuroscience/icore/blob/master/icore_web.png) 
