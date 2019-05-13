@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="cluster" type="string" />
+    </attributes>
+    <nodes>
+      <node id="ARMEDCONFLICT" label="ARMEDCONFLICT">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="ALLIANCE" label="ALLIANCE">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="LEADER" label="LEADER">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="EDUCATION" label="EDUCATION">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="CRIME_ILLEGAL_DRUGS" label="CRIME_ILLEGAL_DRUGS">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="APPOINTMENT" label="APPOINTMENT">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="ELECTION" label="ELECTION">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="MEDIA_MSM" label="MEDIA_MSM">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="BAN" label="BAN">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="ASSASSINATION" label="ASSASSINATION">
+        <attvalues>
+          <attvalue for="0" value="theme" />
+        </attvalues>
+      </node>
+      <node id="jamal khashoggi" label="jamal khashoggi">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="donald trmp" label="donald trmp">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="washington post" label="washington post">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="nited states" label="nited states">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="king salman" label="king salman">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="tayyip erdogan" label="tayyip erdogan">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="jstin trdea" label="jstin trdea">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="white hose" label="white hose">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="mike pompeo" label="mike pompeo">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="associated press" label="associated press">
+        <attvalues>
+          <attvalue for="0" value="entity" />
+        </attvalues>
+      </node>
+      <node id="Jamal Khashoggi" label="Jamal Khashoggi" />
+    </nodes>
+    <edges>
+      <edge id="0" source="ARMEDCONFLICT" target="Jamal Khashoggi" weight="0.5462962962962963" />
+      <edge id="1" source="ALLIANCE" target="Jamal Khashoggi" weight="0.10185185185185185" />
+      <edge id="2" source="LEADER" target="Jamal Khashoggi" weight="0.06481481481481481" />
+      <edge id="3" source="EDUCATION" target="Jamal Khashoggi" weight="0.05555555555555555" />
+      <edge id="4" source="CRIME_ILLEGAL_DRUGS" target="Jamal Khashoggi" weight="0.037037037037037035" />
+      <edge id="5" source="APPOINTMENT" target="Jamal Khashoggi" weight="0.037037037037037035" />
+      <edge id="6" source="ELECTION" target="Jamal Khashoggi" weight="0.037037037037037035" />
+      <edge id="7" source="MEDIA_MSM" target="Jamal Khashoggi" weight="0.027777777777777776" />
+      <edge id="8" source="BAN" target="Jamal Khashoggi" weight="0.027777777777777776" />
+      <edge id="9" source="ASSASSINATION" target="Jamal Khashoggi" weight="0.018518518518518517" />
+      <edge id="10" source="jamal khashoggi" target="Jamal Khashoggi" weight="108" />
+      <edge id="11" source="donald trmp" target="Jamal Khashoggi" weight="61" />
+      <edge id="12" source="washington post" target="Jamal Khashoggi" weight="55" />
+      <edge id="13" source="nited states" target="Jamal Khashoggi" weight="53" />
+      <edge id="14" source="king salman" target="Jamal Khashoggi" weight="28" />
+      <edge id="15" source="tayyip erdogan" target="Jamal Khashoggi" weight="27" />
+      <edge id="16" source="jstin trdea" target="Jamal Khashoggi" weight="26" />
+      <edge id="17" source="white hose" target="Jamal Khashoggi" weight="19" />
+      <edge id="18" source="mike pompeo" target="Jamal Khashoggi" weight="17" />
+      <edge id="19" source="associated press" target="Jamal Khashoggi" weight="15" />
+    </edges>
+  </graph>
+</gexf>
