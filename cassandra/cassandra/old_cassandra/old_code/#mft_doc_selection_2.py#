@@ -1,0 +1,66 @@
+from mg_parse_gkg_cassandra import *
+from collections import defaultdict 
+from cassandra.concurrent import execute_concurrent_with_args # added so we can use concurrency in the query
+#import numpy as np # we'll use numpy to get some extra info about mft variable distribution in this document
+
+# make a new connection to the DB and create a session for that connection
+c,s = establish_session()
+
+daterange = [datetime(2015,1,1)+timedelta(x) for x in range(0,31)] # looking from dec 2016 only
+mft_vars = ['c25.{}'.format(i) for i in range(1,12)] # gcam variable names for mft are c25.1 through c25.11
+theme_selection = ['ACT_HARMTHREATEN','AFFECT', 'ARMEDCONFLICT','CYBER_ATTACK','EXHUMATION','EXTREMISM','FREESPEECH','JIHAD', 'KILL','LEGISLATION','MOVEMENT_SOCIAL','PROTEST','REBELLION', 'RELIGION', 'TERROR', 'WOUND']
+
+# prepare the CQL query w/in the active session -- this will catch any major mistakes in the query  
+q = s.prepare('select url, mft_data, tone_avg, source, wordcount, themes from gkg_record_by_day where gkg_day = ? and wordcount >= 500 and themes contains ? and source_location = \'US\' allow filtering;')
+args = []
+
+for dt in daterange:
+    for theme in theme_selection:
+        args.append((dt,theme))
+
+# bind the generic query to each particular argument and execute them concurrently, up to 32 at a time (in this case, will run all 31 days at once)
+results = execute_concurrent_with_args(s, q, args, concurrency=32) # tricky quirk of the cassandra driver -- must cast the date argument to a tuple, which NB requires the trailing comma!
+
+# initialize a nested dictionary for output
+data_dict = defaultdict(dict)
+
+for result in results:
+    # the execute_concurrent functions return a higher-level object than session.execute
+    # need to check that the query ran successfully, then access all rows in result (nested ResultSet object in property .result_or_exc)
+    if result.success:
+        for row in result.result_or_exc:
+            data_dict[row.url]['tone'] = row.tone_avg
+            data_dict[row.url]['wordcount'] = row.wordcount
+            data_dict[row.url]['source'] = row.source
+            for t in theme_selection:
+                if t in row.themes:
+                    data_dict[row.url][t] = 1
+                else:
+                    data_dict[row.url][t] = 0
+            # while we're at it, let's make this a list so we can get some additional info beyond just the sum of mft vars...
+            mft_values = [] 
+            for k in mft_vars:
+                if row.mft_data and row.mft_data.get(k) != None:
+                    v = float(row.mft_data[k])
+                else:
+                    v = 0.
+                data_dict[row.url][k] = v
+                mft_values.append(v)
+            data_dict[row.url]['pct_mft_words'] = (sum(mft_values) / float(row.wordcount))*100 # cast wordcount to a float to force "normal" division
+            data_dict[row.url]['mft_sum'] = sum(mft_values)
+            data_dict[row.url]['mft_max'] = max(mft_values)
+            data_dict[row.url]['mft_min'] = min(mft_values)            
+    else: # if the query failed, bubble up the exception that was thrown
+        print 'query failed!'
+        raise result.result_or_exc        
+
+        
+        
+for k, v in data_dict.items():
+    for k1, v1 in v.items():
+        if k1 == 'themes' and v1 != None:
+            data_dict[k][k1] = set(v1)
+        if k1 == 'entities' and v1 != None:
+            data_dict[k][k1] = set(v1)
+
+pickle.dump(data_dict, open('test.pkl', 'wb'))

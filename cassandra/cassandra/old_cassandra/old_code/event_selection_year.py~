@@ -1,0 +1,65 @@
+from mg_parse_gkg_cassandra import *
+from collections import defaultdict 
+from cassandra.concurrent import execute_concurrent_with_args # added so we can use concurrency in the query
+#import numpy as np # we'll use numpy to get some extra info about mft variable distribution in this document
+import pickle 
+
+# make a new connection to the DB and create a session for that connection
+c,s = establish_session()
+
+months_str = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
+months_int = [x for x in range(1,13)]
+
+for month in months_str:
+    for number in months_int:
+        daterange = [datetime(2016,number,1)+timedelta(x) for x in range(0,32)] # 2016 
+
+# prepare the CQL query w/in the active session -- this will catch any major mistakes in the query  
+        q = s.prepare('select event_id, event_day, cameo_data, num_mentions, num_sources, num_articles, event_tone_avg, event_goldstein, event_quadclass, event_code, event_base_code,event_root_code, source_url, action_geo_name, action_geo_lat, action_geo_long from event_by_day where event_day = ?;')
+
+        args = []
+
+        for dt in daterange:
+            args.append((dt,))
+
+# bind the generic query to each particular argument and execute them concurrently, up to 32 at a time (in this case, will run all 31 days at once)
+        results = execute_concurrent_with_args(s, q, args, concurrency=32) # tricky quirk of the cassandra driver -- must cast the date argument to a tuple, which NB requires the trailing comma!
+
+# initialize a nested dictionary for output
+        data_dict = defaultdict(dict)
+
+        for result in results:
+        # the execute_concurrent functions return a higher-level object than session.execute
+        # need to check that the query ran successfully, then access all rows in result (nested ResultSet object in property .result_or_exc)
+            if result.success:
+                for row in result.result_or_exc:
+                    data_dict[row.event_id]['url'] = row.source_url
+                    data_dict[row.event_id]['date'] = row.event_day
+                    data_dict[row.event_id]['num_mentions'] = row.num_mentions
+                    data_dict[row.event_id]['num_sources'] = row.num_sources
+                    data_dict[row.event_id]['num_articles'] = row.num_articles
+                    data_dict[row.event_id]['event_tone'] = row.event_tone_avg
+                    data_dict[row.event_id]['event_goldstein'] = row.event_goldstein
+                    data_dict[row.event_id]['quadclass'] = row.event_quadclass
+                    data_dict[row.event_id]['event_code'] = row.event_code
+                    data_dict[row.event_id]['event_base_code'] = row.event_base_code
+                    data_dict[row.event_id]['event_root_code'] = row.event_root_code
+                    data_dict[row.event_id]['action_geo_lat'] = row.action_geo_lat
+                    data_dict[row.event_id]['action_geo_long'] = row.action_geo_long
+                    data_dict[row.event_id]['action_geo_name'] = row.action_geo_name
+                    data_dict[row.event_id]['cameo_codes'] = row.cameo_data
+            
+
+            else: # if the query failed, bubble up the exception that was thrown
+                print 'query failed!'
+                raise result.result_or_exc        
+    
+
+        pickle.dump(data_dict, open('event_16_{}.pkl'.format(month), 'wb'))
+        print('successfully created event record for {}'.format(month))
+
+#with open('jan_16.json', 'w') as outfile:
+   #json.dump(data_dict,outfile)
+
+
+        
