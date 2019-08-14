@@ -4,19 +4,16 @@ icore
 -> Compiled with Redhat Developer Studio (latest version as of 12/3/2018)
 -> Spark/CQL/DataStax dependencies are in the (typical Java server) WEB-INF directory, these .jars (library archives) were copied from the spark install directory on each of the nodes (/home/mona/spark-...)
 
-icore_wildfly
-=======================
--> This was intended to be the source for the API running on Wildfly, which is sort of like Tomcat on steroids
--> Dependency version conflicts between WildFly and Spark means they have to be run in a separate JVM, so I just opted to put our API up on Tomcat.
--> Moving forward, we should use WildFly for our front end, and have it make POSTS to our Tomcat API, that way we can still get the rich WildFly functionality while sidestepping the compatibility issue.
-
 How to Setup Dev Env and Compile/Deploy Tomcat (icore) Server
 =============================================================
--> Install Java 8 (same version as on nodes)
--> Install Apache Tomcat
-	-> My installed version is 8.5.35
+-> Install Java 8: Current version on nodes: 
+	- java version "1.8.0_171"
+	- Java(TM) SE Runtime Environment (build 1.8.0_171-b11)
+	- Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
+-> Install Apache Tomcat (https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04)
+	-> My installed version is 8.5.35; find version: https://archive.apache.org/dist/tomcat/tomcat-8/ 
 	-> You can put the Tomcat directory wherever you'd like
--> Install Redhat Developer Studio (RDS) (this is a special version of Eclipse, so any Eclipse tutorials/info will apply)
+-> Install Redhat Developer Studio (RDS) (https://developers.redhat.com/products/codeready-studio/download)
 	-> My installed version is 12.9.0.GA 
 	-> You may have to point RDS at your Java installation location
 	-> https://developers.redhat.com/products/devstudio/download/
