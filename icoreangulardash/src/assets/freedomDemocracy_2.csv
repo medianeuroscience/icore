@@ -1,0 +1,167 @@
+,ISO,RANK_FREEDOM,COUNTRY,ABUSE_SCORE,PROGRESS_FREEDOM,Rank 2018,Score 2018,ZONE,RANK_DEMOCRACY,Overall score,Electoral process and pluralism,Functioning of government,Political participation,Political culture,Civil liberties,REGIME,Region,IncomeGroup
+0,NOR,1,Norway,"7,82",0,1,"7,63",UE Balkans,1.0,9.87,10.0,9.64,10.0,10.0,9.71,Full democracy,Europe & Central Asia,High income
+1,FIN,2,Finland,"7,9",2,4,"10,26",UE Balkans,8.0,9.14,10.0,8.93,8.33,8.75,9.71,Full democracy,Europe & Central Asia,High income
+2,SWE,3,Sweden,"8,31",-1,2,"8,31",UE Balkans,3.0,9.39,9.58,9.64,8.33,10.0,9.41,Full democracy,Europe & Central Asia,High income
+3,NLD,4,Netherlands,"8,63",-1,3,"10,01",UE Balkans,11.0,8.89,9.58,9.29,8.33,8.13,9.12,Full democracy,Europe & Central Asia,High income
+4,DNK,5,Denmark,"9,87",4,9,"13,99",UE Balkans,5.0,9.22,10.0,9.29,8.33,9.38,9.12,Full democracy,Europe & Central Asia,High income
+5,CHE,6,Switzerland,"10,52",-1,5,"11,27",UE Balkans,10.0,9.03,9.58,9.29,7.78,9.38,9.12,Full democracy,Europe & Central Asia,High income
+6,NZL,7,New Zealand,"10,75",1,8,"13,62",Asie-Pacifique,4.0,9.26,10.0,9.29,8.89,8.13,10.0,Full democracy,East Asia & Pacific,High income
+7,JAM,8,Jamaica,"11,13",-2,6,"11,33",Amériques,47.0,7.02,8.75,7.14,4.44,6.25,8.53,Flawed democracy,Latin America & Caribbean,Upper middle income
+8,BEL,9,Belgium,"12,07",-2,7,"13,16",UE Balkans,31.0,7.78,9.58,8.93,5.0,6.88,8.53,Flawed democracy,Europe & Central Asia,High income
+9,CRI,10,Costa Rica,"12,24",0,10,"14,01",Amériques,20.0,8.07,9.58,7.5,6.67,7.5,9.12,Full democracy,Latin America & Caribbean,Upper middle income
+10,EST,11,Estonia,"12,27",1,12,"14,08",UE Balkans,23.0,7.97,9.58,8.21,6.67,6.88,8.53,Flawed democracy,Europe & Central Asia,High income
+11,PRT,12,Portugal,"12,63",2,14,"14,17",UE Balkans,27.0,7.84,9.58,7.5,6.11,6.88,9.12,Flawed democracy,Europe & Central Asia,High income
+12,DEU,13,Germany,"14,6",2,15,"14,39",UE Balkans,13.0,8.68,9.58,8.57,8.33,7.5,9.41,Full democracy,Europe & Central Asia,High income
+13,ISL,14,Iceland,"14,71",-1,13,"14,1",UE Balkans,2.0,9.58,10.0,9.29,8.89,10.0,9.71,Full democracy,Europe & Central Asia,High income
+14,IRL,15,Ireland,15,1,16,"14,59",UE Balkans,6.0,9.15,9.58,7.86,8.33,10.0,10.0,Full democracy,Europe & Central Asia,High income
+15,AUT,16,Austria,"15,33",-5,11,"14,04",UE Balkans,16.0,8.29,9.58,7.86,8.33,6.88,8.82,Full democracy,Europe & Central Asia,High income
+16,LUX,17,Luxembourg,"15,66",0,17,"14,72",UE Balkans,12.0,8.81,10.0,8.93,6.67,8.75,9.71,Full democracy,Europe & Central Asia,High income
+17,CAN,18,Canada,"15,69",0,18,"15,28",Amériques,6.0,9.15,9.58,9.64,7.78,8.75,10.0,Full democracy,North America,High income
+18,URY,19,Uruguay,"16,06",1,20,"15,56",Amériques,15.0,8.38,10.0,8.57,6.11,7.5,9.71,Full democracy,Latin America & Caribbean,High income
+19,SUR,20,Suriname,"16,38",1,21,"16,44",Amériques,49.0,6.98,9.17,6.43,6.67,5.0,7.65,Flawed democracy,Latin America & Caribbean,Upper middle income
+20,AUS,21,Australia,"16,55",-2,19,"15,46",Asie-Pacifique,9.0,9.09,10.0,8.93,7.78,8.75,10.0,Full democracy,East Asia & Pacific,High income
+21,NAM,23,Namibia,"18,95",3,26,"20,24",Afrique,69.0,6.25,5.67,5.36,6.67,5.63,7.94,Flawed democracy,Sub-Saharan Africa,Upper middle income
+22,LVA,24,Latvia,"19,53",0,24,"19,63",UE Balkans,38.0,7.38,9.58,6.07,5.56,6.88,8.82,Flawed democracy,Europe & Central Asia,High income
+23,CPV,25,Cape Verde,"19,81",4,29,"20,39",Afrique,26.0,7.88,9.17,7.86,6.67,6.88,8.82,Flawed democracy,Sub-Saharan Africa,Lower middle income
+24,GHA,27,Ghana,"20,81",-4,23,"18,41",Afrique,57.0,6.63,8.33,5.71,6.67,6.25,6.18,Flawed democracy,Sub-Saharan Africa,Lower middle income
+25,CYP,28,Cyprus,"21,74",-3,25,"19,85",UE Balkans,35.0,7.59,9.17,6.43,6.67,6.88,8.82,Flawed democracy,Europe & Central Asia,High income
+26,ESP,29,Spain,"21,99",2,31,"20,51",UE Balkans,19.0,8.08,9.17,7.14,7.78,7.5,8.82,Full democracy,Europe & Central Asia,High income
+27,LTU,30,Lithuania,"22,06",6,36,"22,2",UE Balkans,36.0,7.5,9.58,6.43,6.11,6.25,9.12,Flawed democracy,Europe & Central Asia,High income
+28,ZAF,31,South Africa,"22,19",-3,28,"20,39",Afrique,40.0,7.24,7.42,7.5,8.33,5.0,7.94,Flawed democracy,Sub-Saharan Africa,Upper middle income
+29,FRA,32,France,"22,21",1,33,"21,87",UE Balkans,29.0,7.8,9.58,7.5,7.78,5.63,8.53,Flawed democracy,Europe & Central Asia,High income
+30,GBR,33,United Kingdom,"22,23",7,40,"23,25",UE Balkans,14.0,8.53,9.58,7.5,8.33,8.13,9.12,Full democracy,Europe & Central Asia,High income
+31,SVN,34,Slovenia,"22,31",-2,32,"21,69",UE Balkans,36.0,7.5,9.58,6.79,6.67,6.25,8.24,Flawed democracy,Europe & Central Asia,High income
+32,SVK,35,Slovakia,"23,58",-8,27,"20,26",UE Balkans,44.0,7.1,9.58,6.79,5.56,5.63,7.94,Flawed democracy,Europe & Central Asia,High income
+33,BFA,36,Burkina Faso,"24,53",5,41,"23,33",Afrique,104.0,4.75,4.42,4.29,4.44,5.63,5.0,Hybrid regime,Sub-Saharan Africa,Low income
+34,PNG,38,Papua New Guinea,"24,7",15,53,"26,19",Asie-Pacifique,75.0,6.03,6.92,6.07,3.89,5.63,7.65,Flawed democracy,East Asia & Pacific,Lower middle income
+35,TTO,39,Trinidad and Tobago,"24,74",0,39,"22,79",Amériques,43.0,7.16,9.58,7.14,6.11,5.63,7.35,Flawed democracy,Latin America & Caribbean,High income
+36,CZE,40,Czech Republic,"24,89",-6,34,"21,89",UE Balkans,34.0,7.69,9.58,6.79,6.67,6.88,8.53,Flawed democracy,Europe & Central Asia,High income
+37,KOR,41,South Korea,"24,94",2,43,"23,51",Asie-Pacifique,21.0,8.0,9.17,7.86,7.22,7.5,8.24,Flawed democracy,East Asia & Pacific,High income
+38,ITA,43,Italy,"24,98",3,46,"24,12",UE Balkans,33.0,7.71,9.58,6.07,7.78,6.88,8.24,Flawed democracy,Europe & Central Asia,High income
+39,BWA,44,Botswana,"25,09",4,48,"25,29",Afrique,28.0,7.81,9.17,7.14,6.11,7.5,9.12,Flawed democracy,Sub-Saharan Africa,Upper middle income
+40,CHL,46,Chile,"25,65",-8,38,"22,69",Amériques,23.0,7.97,9.58,8.57,4.44,8.13,9.12,Flawed democracy,Latin America & Caribbean,High income
+41,ROU,47,Romania,"25,67",-3,44,"23,65",UE Balkans,66.0,6.38,9.17,5.71,5.0,4.38,7.65,Flawed democracy,Europe & Central Asia,Upper middle income
+42,USA,48,United States of America,"25,69",-3,45,"23,73",Amériques,25.0,7.96,9.17,7.14,7.78,7.5,8.24,Flawed democracy,North America,High income
+43,SEN,49,Senegal,"25,81",1,50,"25,61",Afrique,73.0,6.15,7.5,6.07,4.44,6.25,6.47,Flawed democracy,Sub-Saharan Africa,Lower middle income
+44,GUY,51,Guyana,"26,63",4,55,"26,25",Amériques,54.0,6.67,9.17,5.71,6.11,5.0,7.35,Flawed democracy,Latin America & Caribbean,Upper middle income
+45,FJI,52,Fiji,"27,18",5,57,"26,55",Asie-Pacifique,79.0,5.85,6.58,5.36,6.11,5.63,5.59,Hybrid regime,East Asia & Pacific,Upper middle income
+46,MDG,54,Madagascar,"27,76",0,54,"26,2",Afrique,95.0,5.22,6.08,3.57,6.11,5.63,4.71,Hybrid regime,Sub-Saharan Africa,Low income
+47,DOM,55,Dominican Republic,"27,9",4,59,"26,79",Amériques,61.0,6.54,9.17,5.36,6.11,5.0,7.06,Flawed democracy,Latin America & Caribbean,Upper middle income
+48,COM,56,Comoros,"27,91",-7,49,"25,3",Afrique,121.0,3.71,4.33,2.21,4.44,3.75,3.82,Authoritarian,Sub-Saharan Africa,Lower middle income
+49,ARG,57,Argentina,"28,3",-5,52,"26,05",Amériques,47.0,7.02,9.17,5.36,6.11,6.25,8.24,Flawed democracy,Latin America & Caribbean,Upper middle income
+50,MUS,58,Mauritius,"28,46",-2,56,"26,45",Afrique,17.0,8.22,9.17,8.21,5.56,8.75,9.41,Full democracy,Sub-Saharan Africa,Upper middle income
+51,POL,59,Poland,"28,89",-1,58,"26,59",UE Balkans,54.0,6.67,9.17,6.07,6.11,4.38,7.65,Flawed democracy,Europe & Central Asia,High income
+52,GEO,60,Georgia,"28,98",1,61,"27,34",EEAC,89.0,5.5,7.83,3.57,6.11,4.38,5.59,Hybrid regime,Europe & Central Asia,Upper middle income
+53,ARM,61,Armenia,"28,98",19,80,"29,99",EEAC,103.0,4.79,5.67,4.64,5.56,2.5,5.59,Hybrid regime,Europe & Central Asia,Upper middle income
+54,HTI,62,Haiti,29,-2,60,"26,82",Amériques,102.0,4.91,5.58,2.93,3.89,6.25,5.88,Hybrid regime,Latin America & Caribbean,Low income
+55,BIH,63,Bosnia and Herzegovina,"29,02",-1,62,"27,37",UE Balkans,101.0,4.98,6.5,2.93,5.56,3.75,6.18,Hybrid regime,Europe & Central Asia,Upper middle income
+56,HRV,64,Croatia,"29,03",5,69,"28,94",UE Balkans,60.0,6.57,9.17,6.07,5.56,5.0,7.06,Flawed democracy,Europe & Central Asia,High income
+57,GRC,65,Greece,"29,08",9,74,"29,19",UE Balkans,39.0,7.29,9.58,5.36,6.11,6.88,8.53,Flawed democracy,Europe & Central Asia,High income
+58,NER,66,Niger,"29,26",-3,63,"27,4",Afrique,120.0,3.76,5.25,1.14,3.33,4.38,4.71,Authoritarian,Sub-Saharan Africa,Low income
+59,JPN,67,Japan,"29,36",0,67,"28,64",Asie-Pacifique,22.0,7.99,8.75,8.21,6.67,7.5,8.82,Flawed democracy,East Asia & Pacific,High income
+60,MWI,68,Malawi,"29,36",-4,64,"27,43",Afrique,90.0,5.49,6.58,4.29,4.44,6.25,5.88,Hybrid regime,Sub-Saharan Africa,Low income
+61,MNG,70,Mongolia,"29,51",1,71,"29,05",Asie-Pacifique,62.0,6.5,9.17,5.71,5.56,5.0,7.06,Flawed democracy,East Asia & Pacific,Lower middle income
+62,CIV,71,Ivory Coast,"29,52",11,82,"30,08",Afrique,113.0,4.15,4.83,2.86,3.33,5.63,4.12,Hybrid regime,Sub-Saharan Africa,Lower middle income
+63,TUN,72,Tunisia,"29,61",25,97,"30,91",MENA,63.0,6.41,6.42,5.71,7.78,6.25,5.88,Flawed democracy,Middle East & North Africa,Lower middle income
+64,HKG,73,Hong Kong,"29,65",-3,70,"29,04",Asie-Pacifique,73.0,6.15,3.08,6.07,5.56,7.5,8.53,Flawed democracy,East Asia & Pacific,High income
+65,TGO,76,Togo,"29,69",10,86,"30,23",Afrique,138.0,3.1,3.17,0.79,3.33,5.0,3.24,Authoritarian,Sub-Saharan Africa,Low income
+66,MLT,77,Malta,"29,74",-12,65,"27,44",UE Balkans,18.0,8.21,9.17,8.21,6.11,8.75,8.82,Full democracy,Middle East & North Africa,High income
+67,LSO,78,Lesotho,"29,74",-10,68,"28,78",Afrique,56.0,6.64,9.17,5.0,6.67,5.63,6.76,Flawed democracy,Sub-Saharan Africa,Lower middle income
+68,PAN,79,Panama,"29,78",12,91,"30,56",Amériques,45.0,7.05,9.58,6.07,6.67,5.0,7.94,Flawed democracy,Latin America & Caribbean,High income
+69,BTN,80,Bhutan,"29,81",14,94,"30,73",Asie-Pacifique,94.0,5.3,8.75,6.79,2.78,4.38,3.82,Hybrid regime,South Asia,Lower middle income
+70,SLV,81,El Salvador,"29,81",-15,66,"27,78",Amériques,77.0,5.96,9.17,4.29,5.56,3.75,7.06,Hybrid regime,Latin America & Caribbean,Lower middle income
+71,ALB,82,Albania,"29,84",-7,75,"29,49",UE Balkans,76.0,5.98,7.0,4.71,5.56,5.0,7.65,Hybrid regime,Europe & Central Asia,Upper middle income
+72,KGZ,83,Kyrgyzstan,"29,92",15,98,31,EEAC,98.0,5.11,6.58,2.93,6.67,4.38,5.0,Hybrid regime,Europe & Central Asia,Lower middle income
+73,TLS,84,East Timor,"29,93",11,95,"30,81",Asie-Pacifique,42.0,7.19,9.08,6.79,5.56,6.88,7.65,Flawed democracy,East Asia & Pacific,Lower middle income
+74,PER,85,Peru,"30,22",3,88,"30,27",Amériques,59.0,6.6,9.17,5.0,5.56,5.63,7.65,Flawed democracy,Latin America & Caribbean,Upper middle income
+75,SLE,86,Sierra Leone,"30,36",-7,79,"29,98",Afrique,105.0,4.66,6.58,1.86,3.33,6.25,5.29,Hybrid regime,Sub-Saharan Africa,Low income
+76,HUN,87,Hungary,"30,44",-14,73,"29,11",UE Balkans,57.0,6.63,8.75,6.07,5.0,6.25,7.06,Flawed democracy,Europe & Central Asia,High income
+77,ISR,88,Israel,"30,8",-1,87,"30,26",MENA,30.0,7.79,9.17,7.5,8.89,7.5,5.88,Flawed democracy,Middle East & North Africa,High income
+78,GNB,89,Guinea Bissau,"30,95",-6,83,"30,09",Afrique,157.0,1.98,1.67,0.0,2.78,3.13,2.35,Authoritarian,Sub-Saharan Africa,Low income
+79,SRB,90,Republic of Serbia,"31,18",-14,76,"29,58",UE Balkans,63.0,6.41,8.25,5.36,6.11,5.0,7.35,Flawed democracy,Europe & Central Asia,Upper middle income
+80,MDA,91,Moldova,"31,21",-10,81,"30,01",EEAC,79.0,5.85,7.08,4.64,6.11,4.38,7.06,Hybrid regime,Europe & Central Asia,Lower middle income
+81,GMB,92,Gambia,"31,35",30,122,"38,36",Afrique,111.0,4.31,4.48,4.29,3.33,5.63,3.82,Hybrid regime,Sub-Saharan Africa,Low income
+82,LBR,93,Liberia,"31,49",-4,89,"30,33",Afrique,93.0,5.35,7.42,2.57,5.56,5.63,5.59,Hybrid regime,Sub-Saharan Africa,Low income
+83,MRT,94,Mauritania,"31,65",-22,72,"29,09",Afrique,119.0,3.82,3.0,3.57,5.0,3.13,4.41,Authoritarian,Sub-Saharan Africa,Lower middle income
+84,MKD,95,Macedonia,"31,66",14,109,"32,43",UE Balkans,78.0,5.87,6.5,5.36,6.67,3.75,7.06,Hybrid regime,Europe & Central Asia,Upper middle income
+85,BEN,96,Benin,"31,74",-12,84,"30,16",Afrique,81.0,5.74,6.5,5.71,5.0,5.63,5.88,Hybrid regime,Sub-Saharan Africa,Low income
+86,ECU,97,Ecuador,"31,88",-5,92,"30,56",Amériques,68.0,6.27,8.75,5.36,6.11,4.38,6.76,Flawed democracy,Latin America & Caribbean,Upper middle income
+87,PRY,99,Paraguay,"32,4",8,107,"32,32",Amériques,70.0,6.24,8.75,5.71,5.0,4.38,7.35,Flawed democracy,Latin America & Caribbean,Upper middle income
+88,KEN,100,Kenya,"32,44",-4,96,"30,82",Afrique,98.0,5.11,3.5,5.36,6.67,5.63,4.41,Hybrid regime,Sub-Saharan Africa,Lower middle income
+89,LBN,101,Lebanon,"32,44",-1,100,"31,15",MENA,106.0,4.63,3.92,2.21,6.67,5.63,4.71,Hybrid regime,Middle East & North Africa,Upper middle income
+90,UKR,102,Ukraine,"32,46",-1,101,"31,16",EEAC,84.0,5.69,6.17,3.21,6.67,6.25,6.18,Hybrid regime,Europe & Central Asia,Lower middle income
+91,MOZ,103,Mozambique,"32,66",-4,99,"31,12",Afrique,116.0,3.85,3.58,2.14,5.0,5.0,3.53,Authoritarian,Sub-Saharan Africa,Low income
+92,MNE,104,Montenegro,"32,74",-1,103,"31,21",UE Balkans,81.0,5.74,6.08,5.36,6.11,4.38,6.76,Hybrid regime,Europe & Central Asia,Upper middle income
+93,BRA,105,Brazil,"32,79",-3,102,"31,2",Amériques,50.0,6.97,9.58,5.36,6.67,5.0,8.24,Flawed democracy,Latin America & Caribbean,Upper middle income
+94,NPL,106,Nepal,"33,4",0,106,"32,05",Asie-Pacifique,97.0,5.18,4.33,5.36,5.0,5.63,5.59,Hybrid regime,South Asia,Low income
+95,GIN,107,Guinea,"33,49",-3,104,"31,9",Afrique,136.0,3.14,3.5,0.43,4.44,4.38,2.94,Authoritarian,Sub-Saharan Africa,Low income
+96,KWT,108,Kuwait,"33,86",-3,105,"31,91",MENA,116.0,3.85,3.17,4.29,3.89,4.38,3.53,Authoritarian,Middle East & North Africa,High income
+97,AGO,109,Angola,"34,96",12,121,"38,35",Afrique,123.0,3.62,1.75,2.86,5.56,5.0,2.94,Authoritarian,Sub-Saharan Africa,Lower middle income
+98,ETH,110,Ethiopia,"35,11",40,150,"50,17",Afrique,128.0,3.35,0.0,3.57,5.56,5.0,2.65,Authoritarian,Sub-Saharan Africa,Low income
+99,BGR,111,Bulgaria,"35,11",0,111,"35,22",UE Balkans,46.0,7.03,9.17,6.43,7.22,4.38,7.94,Flawed democracy,Europe & Central Asia,Upper middle income
+100,MLI,112,Mali,"35,23",3,115,"36,15",Afrique,91.0,5.41,7.42,3.93,3.89,5.63,6.18,Hybrid regime,Sub-Saharan Africa,Low income
+101,BOL,113,Bolivia,"35,38",-3,110,"32,45",Amériques,83.0,5.7,7.5,4.64,5.56,3.75,7.06,Hybrid regime,Latin America & Caribbean,Lower middle income
+102,NIC,114,Nicaragua,"35,53",-24,90,"30,41",Amériques,122.0,3.63,2.67,1.86,3.89,5.63,4.12,Authoritarian,Latin America & Caribbean,Lower middle income
+103,GAB,115,Gabon,"35,6",-7,108,"32,37",Afrique,124.0,3.61,2.58,2.21,4.44,5.0,3.82,Authoritarian,Sub-Saharan Africa,Upper middle income
+104,GTM,116,Guatemala,"35,94",0,116,"36,17",Amériques,87.0,5.6,7.92,5.36,3.89,4.38,6.47,Hybrid regime,Latin America & Caribbean,Upper middle income
+105,COG,117,Republic of the Congo,"36,04",-3,114,"35,42",Afrique,131.0,3.31,3.17,2.5,3.89,3.75,3.24,Authoritarian,Sub-Saharan Africa,Lower middle income
+106,TZA,118,United Republic of Tanzania,"36,28",-25,93,"30,65",Afrique,91.0,5.41,7.0,5.0,5.0,5.63,4.41,Hybrid regime,Sub-Saharan Africa,Low income
+107,ZMB,119,Zambia,"36,38",-6,113,"35,36",Afrique,86.0,5.61,6.17,4.64,3.89,6.88,6.47,Hybrid regime,Sub-Saharan Africa,Lower middle income
+108,NGA,120,Nigeria,"36,5",-1,119,"37,41",Afrique,108.0,4.44,6.08,4.64,3.33,3.75,4.41,Hybrid regime,Sub-Saharan Africa,Lower middle income
+109,AFG,121,Afghanistan,"36,55",-3,118,"37,28",Asie-Pacifique,143.0,2.97,2.92,1.14,4.44,2.5,3.82,Authoritarian,South Asia,Low income
+110,TCD,122,Chad,"36,71",1,123,"38,45",Afrique,163.0,1.61,0.0,0.0,1.67,3.75,2.65,Authoritarian,Sub-Saharan Africa,Low income
+111,MYS,123,Malaysia,"36,74",22,145,"47,41",Asie-Pacifique,52.0,6.88,7.75,7.86,6.67,6.25,5.88,Flawed democracy,East Asia & Pacific,Upper middle income
+112,IDN,124,Indonesia,"36,77",0,124,"39,68",Asie-Pacifique,65.0,6.39,6.92,7.14,6.67,5.63,5.59,Flawed democracy,East Asia & Pacific,Lower middle income
+113,UGA,125,Uganda,"39,42",-8,117,"36,77",Afrique,96.0,5.2,5.25,3.57,4.44,6.88,5.88,Hybrid regime,Sub-Saharan Africa,Low income
+114,LKA,126,Sri Lanka,"39,61",5,131,"41,37",Asie-Pacifique,71.0,6.19,7.83,5.71,5.0,6.25,6.18,Flawed democracy,South Asia,Upper middle income
+115,ZWE,127,Zimbabwe,"42,23",-1,126,"40,53",Afrique,134.0,3.16,0.5,2.0,4.44,5.63,3.24,Authoritarian,Sub-Saharan Africa,Lower middle income
+116,QAT,128,Qatar,"42,51",-3,125,"40,16",MENA,133.0,3.19,0.0,4.29,2.22,5.63,3.82,Authoritarian,Middle East & North Africa,High income
+117,COL,129,Colombia,"42,82",1,130,"41,03",Amériques,51.0,6.96,9.17,6.79,5.0,5.63,8.24,Flawed democracy,Latin America & Caribbean,Upper middle income
+118,JOR,130,Jordan,"43,11",2,132,"41,71",MENA,115.0,3.93,3.58,4.29,3.89,4.38,3.53,Authoritarian,Middle East & North Africa,Upper middle income
+119,CMR,131,Cameroon,"43,32",-2,129,"40,92",Afrique,132.0,3.28,3.17,2.86,3.33,4.38,2.65,Authoritarian,Sub-Saharan Africa,Lower middle income
+120,OMN,132,Oman,"43,42",-5,127,"40,67",MENA,140.0,3.04,0.0,3.93,2.78,4.38,4.12,Authoritarian,Middle East & North Africa,High income
+121,ARE,133,United Arab Emirates,"43,63",-5,128,"40,86",MENA,147.0,2.76,0.0,3.93,2.22,5.0,2.65,Authoritarian,Middle East & North Africa,High income
+122,PHL,134,Philippines,"43,91",-1,133,"42,53",Asie-Pacifique,53.0,6.71,9.17,5.71,7.22,4.38,7.06,Flawed democracy,East Asia & Pacific,Lower middle income
+123,MAR,135,Morocco,"43,98",0,135,"43,13",MENA,100.0,4.99,5.25,4.64,5.0,5.63,4.41,Hybrid regime,Middle East & North Africa,Lower middle income
+124,THA,136,Thailand,"44,1",4,140,"44,31",Asie-Pacifique,106.0,4.63,3.0,4.29,5.0,5.0,5.88,Hybrid regime,East Asia & Pacific,Upper middle income
+125,PSE,137,Palestine,"44,68",-3,134,"42,96",MENA,109.0,4.39,3.83,2.14,7.78,4.38,3.82,Hybrid regime,Middle East & North Africa,Lower middle income
+126,MMR,138,Myanmar,"44,92",-1,137,"43,15",Asie-Pacifique,118.0,3.83,3.67,3.93,3.89,5.63,2.06,Authoritarian,East Asia & Pacific,Lower middle income
+127,IND,140,India,"45,67",-2,138,"43,24",Asie-Pacifique,41.0,7.23,9.17,6.79,7.22,5.63,7.35,Flawed democracy,South Asia,Lower middle income
+128,DZA,141,Algeria,"45,75",-5,136,"43,13",MENA,126.0,3.5,2.58,2.21,3.89,5.0,3.82,Authoritarian,Middle East & North Africa,Upper middle income
+129,PAK,142,Pakistan,"45,83",-3,139,"43,24",Asie-Pacifique,112.0,4.17,6.08,5.36,2.22,2.5,4.71,Hybrid regime,South Asia,Lower middle income
+130,KHM,143,Cambodia,"45,9",-1,142,"45,9",Asie-Pacifique,125.0,3.59,1.33,5.0,2.78,5.63,3.24,Authoritarian,East Asia & Pacific,Lower middle income
+131,MEX,144,Mexico,"46,78",3,147,"48,91",Amériques,71.0,6.19,8.33,6.07,7.22,3.13,6.18,Flawed democracy,Latin America & Caribbean,Upper middle income
+132,CAF,145,Central African Republic,"47,27",-33,112,"35,25",Afrique,164.0,1.52,2.25,0.0,1.11,1.88,2.35,Authoritarian,Sub-Saharan Africa,Low income
+133,HND,146,Honduras,"48,53",-5,141,"45,23",Amériques,85.0,5.63,8.5,4.64,4.44,4.38,6.18,Hybrid regime,Latin America & Caribbean,Lower middle income
+134,SWZ,147,Swaziland,"49,09",5,152,"51,46",Afrique,141.0,3.03,0.92,2.86,2.22,5.63,3.53,Authoritarian,Sub-Saharan Africa,Lower middle income
+135,VEN,148,Venezuela,"49,1",-5,143,"46,03",Amériques,134.0,3.16,1.67,1.79,4.44,4.38,3.53,Authoritarian,Latin America & Caribbean,Upper middle income
+136,RUS,149,Russia,"50,31",-1,148,"49,96",EEAC,144.0,2.94,2.17,1.79,5.0,2.5,3.24,Authoritarian,Europe & Central Asia,Upper middle income
+137,BGD,150,Bangladesh,"50,74",-4,146,"48,62",Asie-Pacifique,88.0,5.57,7.83,5.07,5.56,4.38,5.0,Hybrid regime,South Asia,Lower middle income
+138,SGP,151,Singapore,"51,41",0,151,"50,95",Asie-Pacifique,66.0,6.38,4.33,7.86,6.11,6.25,7.35,Flawed democracy,East Asia & Pacific,High income
+139,BLR,153,Belarus,"51,66",2,155,"52,59",EEAC,137.0,3.13,0.92,2.86,3.89,5.63,2.35,Authoritarian,Europe & Central Asia,Upper middle income
+140,COD,154,Democratic Republic of the Congo,"51,71",0,154,"51,6",Afrique,165.0,1.49,0.5,0.71,2.22,3.13,0.88,Authoritarian,Sub-Saharan Africa,Low income
+141,RWA,155,Rwanda,"52,43",1,156,"52,9",Afrique,128.0,3.35,1.67,5.0,2.78,4.38,2.94,Authoritarian,Sub-Saharan Africa,Low income
+142,IRQ,156,Iraq,"52,6",4,160,"56,56",MENA,114.0,4.06,4.75,0.07,6.67,5.0,3.82,Hybrid regime,Middle East & North Africa,Upper middle income
+143,TUR,157,Turkey,"52,81",0,157,"53,5",EEAC,110.0,4.37,4.5,5.0,5.0,5.0,2.35,Hybrid regime,Europe & Central Asia,Upper middle income
+144,KAZ,158,Kazakhstan,"52,82",0,158,"54,41",EEAC,144.0,2.94,0.5,2.14,4.44,4.38,3.24,Authoritarian,Europe & Central Asia,Upper middle income
+145,BDI,159,Burundi,"52,89",0,159,"55,26",Afrique,153.0,2.33,0.0,0.43,3.89,5.0,2.35,Authoritarian,Sub-Saharan Africa,Low income
+146,UZB,160,Uzbekistan,"53,52",5,165,"60,84",EEAC,156.0,2.01,0.08,1.86,2.22,5.0,0.88,Authoritarian,Europe & Central Asia,Lower middle income
+147,TJK,161,Tajikistan,"54,02",-12,149,"50,06",EEAC,159.0,1.93,0.08,0.79,1.67,6.25,0.88,Authoritarian,Europe & Central Asia,Low income
+148,LBY,162,Libya,"55,77",0,162,"56,79",MENA,154.0,2.19,1.0,0.36,1.67,5.0,2.94,Authoritarian,Middle East & North Africa,Upper middle income
+149,EGY,163,Egypt,"56,47",-2,161,"56,72",MENA,127.0,3.36,3.58,3.21,3.33,3.75,2.94,Authoritarian,Middle East & North Africa,Lower middle income
+150,GNQ,165,Equatorial Guinea,"58,35",6,171,"66,47",Afrique,161.0,1.92,0.0,0.43,3.33,4.38,1.47,Authoritarian,Sub-Saharan Africa,Upper middle income
+151,AZE,166,Azerbaijan,"59,13",-3,163,"59,73",EEAC,149.0,2.65,0.5,2.14,3.33,3.75,3.53,Authoritarian,Europe & Central Asia,Upper middle income
+152,BHR,167,Bahrain,"61,31",-1,166,"60,85",MENA,148.0,2.71,0.83,3.21,2.78,4.38,2.35,Authoritarian,Middle East & North Africa,High income
+153,YEM,168,Yemen,"61,66",-1,167,"62,23",MENA,158.0,1.95,0.0,0.0,3.89,5.0,0.88,Authoritarian,Middle East & North Africa,Low income
+154,CUB,169,Cuba,"63,81",3,172,"68,9",Amériques,142.0,3.0,1.08,3.57,3.33,4.38,2.65,Authoritarian,Latin America & Caribbean,Upper middle income
+155,IRN,170,Iran,"64,41",-6,164,"60,71",MENA,150.0,2.45,0.0,3.21,4.44,3.13,1.47,Authoritarian,Middle East & North Africa,Upper middle income
+156,LAO,171,Laos,"64,49",-1,170,"66,41",Asie-Pacifique,151.0,2.37,0.83,2.86,1.67,5.0,1.47,Authoritarian,East Asia & Pacific,Lower middle income
+157,SAU,172,Saudi Arabia,"65,88",-3,169,"63,13",MENA,159.0,1.93,0.0,2.86,2.22,3.13,1.47,Authoritarian,Middle East & North Africa,High income
+158,DJI,173,Djibouti,"71,36",0,173,"70,77",Afrique,146.0,2.87,0.42,1.79,3.89,5.63,2.65,Authoritarian,Middle East & North Africa,Lower middle income
+159,SYR,174,Syria,"71,78",3,177,"79,22",MENA,166.0,1.43,0.0,0.0,2.78,4.38,0.0,Authoritarian,Middle East & North Africa,Low income
+160,SDN,175,Sudan,"72,45",-1,174,"71,13",Afrique,155.0,2.15,0.0,1.79,2.78,5.0,1.18,Authoritarian,Sub-Saharan Africa,Lower middle income
+161,VNM,176,Vietnam,"74,93",-1,175,"75,05",Asie-Pacifique,139.0,3.08,0.0,3.21,3.89,5.63,2.65,Authoritarian,East Asia & Pacific,Lower middle income
+162,CHN,177,China,"78,92",-1,176,"78,29",Asie-Pacifique,130.0,3.32,0.0,5.0,3.89,6.25,1.47,Authoritarian,East Asia & Pacific,Upper middle income
+163,ERI,178,Eritrea,"80,26",1,179,"84,24",Afrique,151.0,2.37,0.0,2.14,1.67,6.88,1.18,Authoritarian,Sub-Saharan Africa,Low income
+164,PRK,179,North Korea,"83,4",1,180,"88,87",Asie-Pacifique,167.0,1.08,0.0,2.5,1.67,1.25,0.0,Authoritarian,East Asia & Pacific,Low income
+165,TKM,180,Turkmenistan,"85,44",-2,178,"84,2",EEAC,162.0,1.72,0.0,0.79,2.22,5.0,0.59,Authoritarian,Europe & Central Asia,Upper middle income

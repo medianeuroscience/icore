@@ -1,0 +1,11 @@
+.zeroth{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+}
+
+.first {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+}

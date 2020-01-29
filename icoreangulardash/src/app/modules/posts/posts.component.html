@@ -1,0 +1,95 @@
+
+
+<div>
+    <h1 style="text-align: center">Event Query Dashboard</h1>
+  <p style="text-align: center; font-size: 20px; padding-left: 30%; padding-right: 30%;">Welcome to the Event Query Dashboard! This interface allows you to specify parameters to query preprocessed event data from iCoRe. Make sure you have read the tutorial on how to optimize queries for your research purposes.</p>
+
+<mat-divider></mat-divider>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+<form #userForm_all ="ngForm" (ngSubmit)="Submit()" style="text-align: center; padding-left: 5%; padding-right: 5%;">
+
+  <mat-grid-list cols="2" rowHeight="7:1">
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <mat-hint>e.g,  2019</mat-hint>
+        <input matInput #year="ngModel" required name = "userYear" [(ngModel)]="userModel.year">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Month</mat-label>
+        <mat-hint>e.g,  01-03</mat-hint>
+        <input matInput #month ="ngModel" required name = "month" [(ngModel)]="userModel.month">
+      </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Event Location</mat-label>
+          <mat-select #country="ngModel" name="country" [(ngModel)]="userModel.country">
+            <mat-option value="default"> Choose Location </mat-option>
+            <mat-option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Event Type</mat-label>
+          <mat-select #issue="ngModel" name="event" [(ngModel)] = "userModel.event">
+            <mat-option value="default"> Choose Event </mat-option>
+            <mat-option *ngFor="let event of events" [value]="event">{{ event }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Keyword Search</mat-label>
+          <mat-hint>e.g, plastic_bag</mat-hint>
+          <input matInput #entity="ngModel" name="keyword" [(ngModel)] = "userModel.keyword">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Data Format</mat-label>
+          <mat-select #format="ngModel" multiple name="format" [(ngModel)] = "userModel.format">
+            <mat-option value="csv">Comma-separated Value (CSV) </mat-option>
+            <mat-option value="json">Java Script Object Notation (JSON) </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <mat-hint>Please type in an email address to receive your query</mat-hint>
+        <input matInput #email="ngModel" required name="email" [(ngModel)] = "userModel.email">
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <br>
+  {{ userSubmitted }}
+  <div style="text-align: center;">
+    <button mat-raised-button [disabled] = "!userForm_all.valid" color="primary">Submit</button>
+  </div>
+</form>
+
+
+<br>
+<br>
+<br>
+<br>
+<mat-divider></mat-divider>

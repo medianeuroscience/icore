@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iCoRe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Set the tab, home page, shortcut icons -->
+    <link rel="Shortcut Icon" href="img/icore_16px.png">
+
+    <!-- For minification, comment out this link -->
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/screen.css"/>
+
+    <!-- Set viewport scaling and zoom features -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<header>
+    <p><a href="index.html" style="color:#febf36;text-decoration:none">iCoRe - The GDELT Interface for Communication Research</a> </p>
+</header>
+    <div class="get_started">
+        <h3>Query and Data Interpretation</h3>
+        <hr class="hr">
+        <p> iCoRe currently allows users to obtain data from GDELT's Global Knowledge Graph (GKG) and GDELT's Event (EVENTS) table.
+            Compared to GDELT's own APIs, iCoRe does not limit the amount of data entries that can be pulled. Furthermore, iCoRe allows users to select
+            specific content metrics instead of returning the complete set of content metrics that are contained in GDELT's Global Content Analysis Measurement (GCAM) string.
+            Plus, iCoRe returns the complex structure of the GCAM string in a preprocessed, simple-to-use format.
+            These features make iCoRe more efficient, user-friendly, and provide clearer insights into the data that are being returned.
+            <br>
+            <br>
+            After executing a query through <a href="analyze.html" style="color:#ff7f7f;text-decoration:none"> iCoRe's interface</a>, the data is returned in either CSV or JSON format.
+            Below is a typical GKG query result in CSV format that is returned from iCoRe:
+            <br>
+            </p>
+        <h4> <u> Interpretation of GKG Query Result </u></h4>
+        <img src="img/qresult.png" alt="icore" style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
+       <br>
+        <p>
+           From left to right:
+        <ul>
+            <li> <b>ID</b>: Each GKG record is being attributed a unique identifier by GDELT</li>
+            <li> <b>Date</b>: Publication date of the analyzed news article</li>
+            <li> <b>URL</b>: Uniform Resource Locator of the news article. This URL can be used to manually scrape the original article text</li>
+            <li> <b>Tone</b>: Average tone/sentiment of the news article (–100 most negative through +100 most positive)</li>
+            <li> <b>Care/Harm</b>: Wordcounts for identified care and harm words as indexed by the Moral Foundations Dictionary (other dictionary categories omitted for visualization purposes)</li>
+            <li> <b>Themes</b>: List of identified themes and topics that are present in a news article as identified by GDELT's Theme Dictionaries</li>
+            <li> <b>Named Entities</b>: List of identified named entities (e.g., persons, countries, organizations) that are present in a news article</li>
+            <li> <b>Source</b>: News source of the article. For a list of currently included sources in iCoRe, see </li>
+            <li> <b>Wordcount</b>: Article length of the news document </li>
+            <li> <b>Source Location</b>: FIPS country code of the news source location. </li>
+        </ul>
+
+        <!--<h4> <u> Interpretation of EVENT Query Result </u></h4>-->
+    </div>
+    <div class="footer">
+        <p> A project of the <a href="https://www.medianeuroscience.org/" style="color:#febf36;text-decoration:none">Media Neuroscience Lab</a> and <a href="https://federatedcloud.org/" style="color:#febf36;text-decoration:none">Aristotle Cloud Federation</a>  </p>
+    </div>
+</body>
+</html>

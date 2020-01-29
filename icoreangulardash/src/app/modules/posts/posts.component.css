@@ -1,0 +1,13 @@
+mat-form-field.mat-form-field {
+  font-size: 20px;
+  width: 60%;
+}
+
+/* Font color */
+input.mat-input-element {
+  color: black;
+}
+
+.my-grid-tile {
+    padding-top: 10% !important;
+}

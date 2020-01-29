@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iCoRe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Set the tab, home page, shortcut icons -->
+    <link rel="Shortcut Icon" href="img/icore_16px.png">
+
+    <!-- For minification, comment out this link -->
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/screen.css"/>
+
+    <!-- Set viewport scaling and zoom features -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+	<header>
+        <h1 style="font-family: Ubuntu;font-size: 25px;font-style: normal;font-variant: normal;font-weight: lighter;margin: 0;line-height: 50px;vertical-align: middle;width: 26em; position: fixed; left: 33%;"><a href="index.html" style="color:#febf36;text-decoration:none">iCoRe - The GDELT Interface for Communication Research</a> </h1>
+	</header>
+    <div class="get_started">
+        <h3>Technical Backend</h3>
+        <hr class="hr">
+        <p> iCoRe is based on a distributed database (Apache Cassandra) across a virtual cluster provided by the Aristotle Cloud Federation.
+            iCoRe contains multiple tables to store the GDELT data according to different partition keys to speed up queries that span, for example, certain locations or time periods.
+            Queries are driven by the DataStax Cassandra connector, with a lightweight front end written in Java and hosted in Apache Tomcat.
+            Cassandra queries are enhanced by Apache Spark support, which allows for efficient complex queries, such as as filters and joins.
+            Each query consists of an HTTP request using AJAX for a smooth user experience The endpoint of each request specifies the data source and the URL query string specifies the filters or constraints on the data.
+            </p>
+        <hr class="hr">
+        <br>
+        <img src="img/icore_structure.png" alt="icore" style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
+    </div>
+
+
+        <div class="footer">
+        <p> A project of the <a href="https://www.medianeuroscience.org/" style="color:#febf36;text-decoration:none">Media Neuroscience Lab</a> and <a href="https://federatedcloud.org/" style="color:#febf36;text-decoration:none">Aristotle Cloud Federation</a>  </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <p style="text-align: center; width: 100%; font-size: 30px; font-family: Myriad Pro;">
+      iCoRe - The GDELT Interface for Communication Research
+    </p>
+
+
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+
+        <ul>
+          <li>
+
+              <a routerLink="/home">
+                <button mat-button>
+                  <mat-icon style="color: #febf36;">home</mat-icon>
+                </button>
+              </a>
+
+
+            </li>
+          </ul>
+      </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,74 @@
+
+
+<div>
+  <h2 style="text-align: center;">Thank your for using iCoRe!</h2>
+  <p style="text-align: center; font-size: 20px; padding-left: 30%; padding-right: 30%;">
+    Your query is being processed and will be sent to your email shortly. In the meantime, please consider filling out this short survey to tell us a bit more about yourself and your project. All information provided will remain confidential. Thank you!</p>
+
+<mat-divider></mat-divider>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+<form #userForm_all ="ngForm" (ngSubmit)="Submit()" style="text-align: center; padding-left: 5%; padding-right: 5%;">
+
+  <mat-grid-list cols="2" rowHeight="6:1">
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <mat-hint>Please type in your email</mat-hint>
+        <input matInput #email="ngModel" required name="email" [(ngModel)] = "userModel.email">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Institution</mat-label>
+        <mat-hint>Please type in the institution you are affiliated with</mat-hint>
+        <input matInput #institution ="ngModel" required name = "institution" [(ngModel)]="userModel.institution">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Project Description</mat-label>
+        <mat-hint>Please provide us with a short description of your project</mat-hint>
+        <textarea matInput #description ="ngModel" required name = "description" [(ngModel)]="userModel.description"></textarea>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Profession</mat-label>
+        <mat-hint>Please tell us your current professional position</mat-hint>
+        <input matInput #profession ="ngModel" required name = "profession" [(ngModel)]="userModel.profession">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Location</mat-label>
+        <mat-hint>Please tell us the city and country you are located in as follows; Los Angeles, USA</mat-hint>
+        <input matInput #location ="ngModel" required name = "location" [(ngModel)]="userModel.location">
+      </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <br>
+  {{ userSubmitted }}
+  <div style="text-align: center;">
+  <button mat-raised-button [disabled] = "userForm_all.form.invalid" color="primary">Submit</button>
+  </div>
+
+</form>
+
+
+<br>
+<br>
+<br>
+<br>
+<mat-divider></mat-divider>

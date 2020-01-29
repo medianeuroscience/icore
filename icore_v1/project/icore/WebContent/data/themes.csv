@@ -1,0 +1,284 @@
+Type,Name,Description
+Theme,ACT_FORCEPOSTURE,Actions relating to changes in force posture
+Theme,ACT_HARMTHREATEN,Actions relating to harming or threatening
+Theme,ACT_MAKESTATEMENT,Actions relating to making a statement
+Theme,ACT_YIELD,Actions relating to yielding
+Count,AFFECT,This broad category captures everything from being sickened to refugees evacuations displaced persons stranded etc
+Theme,AGRICULTURE,General discussion of agriculture
+Theme,ALLIANCE,Self-identified discussion of alliances and coalitions
+Theme,APPOINTMENT,An appointment of someone to something
+Theme,ARMEDCONFLICT,Primary discussion of armed conflict from ground assaults to air raids
+Count,ARREST,Discussion of someone being arrested detained jailed imprisoned etc
+Theme,ASSASSINATION,Actual discussion of assassination
+Theme,AUSTERITY,Mention of austerity.
+Theme,AVIATION_INCIDENT,Plane/helicopter crashes collisions accidents.
+Theme,BAN,Something being banned prohibited outlawed criminalized etc
+Theme,BLACK_MARKET,"Actual mentions of ""black market"" not related terms"
+Theme,BLOCKADE,Mentions of blockades and no fly zones - use in combination with the military themes to distinguish armed vs non-kinetic blockades
+Theme,BORDER,Any discussion of borders
+Theme,BULLYING,"Explicit mention of the word ""bullying/cyberbullying"""
+Theme,CEASEFIRE,Mentions of ceasefires truces peace deals suspension of hostilities etc
+Theme,CHARASMATIC_LEADERSHIP,Charasmatic leadership
+Theme,CHECKPOINT,Security checkpoints
+Theme,CLAIM_CREDIT,Claims of responsibility or credit for good (claimed credit for the success) and bad (claimed credit for the bombing)
+Theme,CLOSURE,Discussion of closure other than road bridge street closure (ie facility closure military base closure etc)
+Theme,CONFISCATION,Actual mention of confiscation in the text
+Theme,CONSTITUTIONAL,Discussion of constitutionalism
+Theme,CORRUPTION,Corruption kickbacks embezzling profiteering etc
+Theme,CRIME_CARTELS,Primarily focused around mentions of drug cartels drug corridors etc.  Does not currently have a list of cartels just captures general discussion of them
+Theme,CRIME_COMMON_ROBBERY,Discussion of general crime like pickpocketing robbery street criminals etc
+Theme,CRIME_ILLEGAL_DRUGS,Mentions of illegal drugs
+Theme,CURFEW,Discussion of any curfew
+Theme,CYBER_ATTACK,Any discussion of cyberwarfare cyberattacks phishing hacking hacktivists viruses etc
+Theme,DEATH_PENALTY,From general discussion of capital punishment to actual mentions of death sentences
+Theme,DEFECTION,Any discussion of defection or defectors
+Theme,DELAY,Canceling postponing stalling delaying anything
+Theme,DEMOCRACY,"Actual mention of the term ""democracy"""
+Theme,DISABILITY,Disability disabled handicapped.
+Theme,DISCRIMINATION,Racism homophobia xenophobia etc
+Count,DISPLACED,This category counts mentions of people being displaced - see REFUGEES for counts of refugees forced migration and related
+Theme,DRONE,Drones UAVs.
+Theme,DRUG_TRADE,General discussion of the drug trade in broad terms - broader than the other categories
+Theme,ECON_BANKRUPTCY,Bankruptcy and bailouts
+Theme,ECON_BOYCOTT,Boycotts
+Theme,ECON_COST_OF_LIVING,"Explicit mention of ""cost of living"" ""median wage"" etc"
+Theme,ECON_CURRENCY_EXCHANGE_RATE,Exchange rates foreign exchange forex currency fluctuation  etc
+Theme,ECON_CURRENCY_RESERVES,Currency reserves forex reserves dollar and euro reserves etc
+Theme,ECON_CUTOUTLOOK,Cutting economic outlook
+Theme,ECON_DEBT,Discussion of debt
+Theme,ECON_DEREGULATION,Economic deregulation
+Theme,ECON_EARNINGSREPORT,Earnings reports etc
+Theme,ECON_ENTREPRENEURSHIP,Entrepreneurship venture capital seed funding angel investors etc
+Theme,ECON_FOREIGNINVEST,Foreign investment
+Theme,ECON_FREETRADE,Free trade
+Theme,ECON_HOUSING_PRICES,Housing prices real estate and other explicit discussion of property
+Theme,ECON_INFORMAL_ECONOMY,Informal economies
+Theme,ECON_INTEREST_RATES,Interest rates benchmark rates overnight rates libor etc
+Theme,ECON_IPO,Initial Public Offerings
+Theme,ECON_MONOPOLY,Monopolies anticompetitive practice etc
+Theme,ECON_MOU,Relating to a Memorandum of Understanding
+Theme,ECON_NATIONALIZE,Discussion of nationalization of industry etc
+Theme,ECON_PRICECONTROL,Price controls
+Theme,ECON_REMITTANCE,Remittance
+Theme,ECON_STOCKMARKET,Any discussion of a stockmarket NYSE FTSE etc also discussion of government bonds etc
+Theme,ECON_SUBSIDIES,Economic subsidies
+Theme,ECON_TAXATION,Taxation
+Theme,ECON_TRADE_DISPUTE,Trade disputes antidumping etc
+Theme,ECON_UNIONS,Discussion of unions unionization shop stewards etc
+Theme,EDUCATION,Teachers schools madrassas yeshivas professors education in general
+Theme,ELECTION,Elections of any kind
+Theme,ELECTION_FRAUD,Election fraud from ballot stuffing to vote rigging
+Theme,ENV_BIOFUEL,Biofuels
+Theme,ENV_CARBONCAPTURE,Carbon capture/sequestration
+Theme,ENV_CLIMATECHANGE,Discussion of climate change and global warming
+Theme,ENV_COAL,Coal power
+Theme,ENV_DEFORESTATION,Deforestation and clear cutting
+Theme,ENV_FISHERY,Discussion of fisheries and fish hatcheries
+Theme,ENV_FORESTRY,Foresty and the logging industry
+Theme,ENV_GEOTHERMAL,Geothermal
+Theme,ENV_GREEN,Green renewable and alternative energy
+Theme,ENV_HYDRO,Hydropower
+Theme,ENV_METALS,Core metals like gold platinum silver copper iron
+Theme,ENV_MINING,Mining operations
+Theme,ENV_NATURALGAS,Natural gas for power and heating
+Theme,ENV_NUCLEARPOWER,Nuclear power for energy generation (excludes nuclear weapons)
+Theme,ENV_OIL,Oil power
+Theme,ENV_OVERFISH,Overfishing
+Theme,ENV_POACHING,Poaching
+Theme,ENV_SOLAR,Solar power
+Theme,ENV_SPECIESENDANGERED,Discussion of endangered species
+Theme,ENV_SPECIESEXTINCT,Discussion of extinction
+Theme,ENV_WATERWAYS,Waterways
+Theme,ENV_WINDPOWER,Wind power
+Theme,ETH_INDIGINOUS,Discussion of indiginous peoples
+Count,EVACUATION,Mentions of evacuations
+Theme,EXHUMATION,Discussion of mass graves exhumation unearthing of bodies human remains etc
+Theme,EXILE,Actual mention of exile in the text
+Theme,EXTREMISM,"Discussion of extremists both political (farright/farleft/anarchist) groups like skinheads and terms like zealot ""fringe element"" etc"
+Theme,FIREARM_OWNERSHIP,Gun rights
+Theme,FOOD_SECURITY,Famine food crisis malnourishment food prices
+Theme,FOOD_STAPLE,"Captures explicit mention of terms like ""food staple"""
+Theme,FREESPEECH,Freedom of speech
+Theme,FUELPRICES,Cost of fuel energy heating.
+Theme,GEN_HOLIDAY,General discussion of holidays
+Theme,GENDER_VIOLENCE,Gender violence
+Theme,GENERAL_GOVERNMENT,General discussion of government congress parliament republic regime etc
+Theme,GENERAL_HEALTH,Any general discussion of human animal plant etc health from hygiene to hospitals doctors to disease
+Theme,GENTRIFICATION,Gentrification
+Theme,GOV_DISSOLVEGOV,Dissolving government
+Theme,GOV_DIVISIONOFPOWER,Division of power in government
+Theme,GOV_INTERGOVERNMENTAL,Intergovernmental activities or proposals
+Theme,GOV_REFORM,Government reform
+Theme,GOV_REPATRIATION,Repatriation
+Theme,GRIEVANCES,"Mention of the term ""grievances"" as explicit discussion of societal unhappiness."
+Theme,HARASSMENT,"Explicit mention of the word ""harassment"""
+Theme,HATE_SPEECH,"Explicit mention of the phrase ""hate speech"""
+Theme,HEALTH_PANDEMIC,Explicit mention in the text of a pandemic or public health emergency
+Theme,HEALTH_SEXTRANSDISEASE,Mention of sexually transmitted diseases
+Theme,HEALTH_VACCINATION,Mentions of vaccination immunization
+Theme,HUMAN_TRAFFICKING,Human trafficking sexual slavery prostitution human smuggling etc
+Theme,IDEOLOGY,Self-identified discussion of ideology
+Theme,IMMIGRATION,Discussion of immigration
+Theme,IMPEACHMENT,Impeachment
+Theme,INFO_HOAX,Discussion of hoaxes
+Theme,INFO_RUMOR,Discussion of rumors
+Theme,INFRASTRUCTURE_BAD_ROADS,Mentions of potholes impassable roads blocked roads etc.
+Theme,INSURGENCY,Self-identified discussion of insurgency
+Theme,INTERNET_BLACKOUT,Mentions of internet blackouts
+Theme,INTERNET_CENSORSHIP,Internet censorship such as blocking websites etc
+Theme,JIHAD,"Actual mentions of ""jihad"" and ""holy war"""
+Count,KIDNAP,Someone being kidnapped abducted hostages etc
+Count,KILL,Any mention of something dying
+Theme,LANDMINE,Landmines IEDs antipersonnel mines etc
+Theme,LEADER,Political elites such as lawmakers presidents supreme leaders etc
+Theme,LEGALIZE,Something being legalized laws being repealed etc
+Theme,LEGISLATION,Discussion of laws
+Theme,LGBT,Lesbian Gay Bisexual and Transgender discussion
+Theme,LITERACY,Discussion of literacy and illiteracy
+Theme,LOCUSTS,Mentions of locusts
+Theme,MANMADE_DISASTER,Failure of manmade infrastructure such as car crashes bridge collapses derailments plane crashes etc
+Theme,MANMADE_DISASTER_IMPLIED,Discussion of disasters in context with manmade structures but where the relationship is not fully clear but is implied
+Theme,MARITIME,General discussion of the maritime environment
+Theme,MARITIME_INCIDENT,Sinking ships capsizing etc
+Theme,MARITIME_INCIDENT_IMPLIED,Maritime emergencies like sinking ships collisions at sea etc
+Theme,MARITIME_INCIDENT_SELF_IDENTIFIED,Mentions of specific unambiguous martime accidents like grounding.
+Theme,MARITIME_PIRACY,Maritime piracy
+Theme,MEDIA_CENSORSHIP,Censorship of the mainstream media such as arresting journalists press freedoms etc
+Theme,MEDIA_MSM,"Any mention of mainstream media such as television reporter journalist etc.  Often flags just a mention of a ""reporter"" but can be used to capture discussion of MSM overall"
+Theme,MEDIA_SOCIAL,"Any mention of social media such as Facebook Twitter etc.  Often flags mentions of ""follow me on twitter"" but useful proxy for discussion of social media"
+Theme,MEDICAL,More narrowly focused on healthcare like nurses health services addiction treatment etc
+Theme,MEDICAL_SECURITY,Access to doctors healthcare poor medical access etc.
+Theme,MIL_SELF_IDENTIFIED_ARMS_DEAL,"Only actual mentions of ""arms deal"" ""weapons sale"" etc - doesn't determine that a sale of AK47's is an arms sale requires the text to explicitly label it as such"
+Theme,MIL_WEAPONS_PROLIFERATION,Weapons proliferation
+Theme,MILITARY,General discussion of the military
+Theme,MILITARY_COOPERATION,Actual mentions of military ties military aid defense cooperation etc (where the text explicitly labels it as such)
+Theme,MOVEMENT_ENVIRONMENTAL,Environmental movements
+Theme,MOVEMENT_GENERAL,General discussion of movements activists etc
+Theme,MOVEMENT_OTHER,Catchall for movements such as equality movements religious movements youth movements labor movements etc
+Theme,MOVEMENT_SOCIAL,General discussion of social-related movements
+Theme,MOVEMENT_WOMENS,Women-specific movements
+Theme,NATURAL_DISASTER,From floods to coldsnaps wildfires to tornadoes
+Theme,NEGOTIATIONS,Discussion of bargaining negotations etc.
+Theme,NEW_CONSTRUCTION,Mentions of new construction new roads etc
+Theme,ORGANIZED_CRIME,Discussion of gangs mafia organized crime etc
+Theme,PEACEKEEPING,Mentions of peacekeepers UN forces etc
+Theme,PERSECUTION,"Actual mentions of ""persecution"""
+Theme,PHONE_OUTAGE,Interruption of phone service.
+Theme,PIPELINE_INCIDENT,Pipeline explosion or damage.
+Theme,PIRACY,Piracy hijacking etc (but not software/music/etc piracy)
+Theme,POL_HOSTVISIT,Hosting a visit
+Theme,POLITICAL_PRISONER,Explicit mention of political prisoners or labor camps
+Theme,POLITICAL_TURMOIL,"Discussion of major unrest such as martial law political ""crisis"" state of emergency violent supression etc."
+Theme,POPULATION_DENSITY,Population density
+Theme,POVERTY,Poverty homeless destitute
+Theme,POWER_OUTAGE,Mentions of power failures - these are also captured under MANMADE_DISASTER but are broken out here so that they can be specifically selected
+Theme,PRIVATIZATION,Mention of privatization or deregulation.
+Theme,PROPAGANDA,"Explicit mention of ""propaganda"""
+Theme,PROPERTY_RIGHTS,Discussion of property rights land tenure eminent domain land confiscation
+Count,PROTEST,Discussion of protesting demonstrating rioting striking activists agitators etc
+Theme,PUBLIC_TRANSPORT,Public transportation from buses to subways
+Theme,RAIL_INCIDENT,Train accidents derailments etc.
+Theme,RAPE,Rape sexual slavery sex crime etc
+Theme,RATIFY,Mention of something actually being adopted signed into law ratified etc
+Theme,REBELLION,Mutinies uprisings civil war etc
+Theme,REBELS,Self-identified discussion of rebels
+Theme,RECRUITMENT,Recruitment
+Count,REFUGEES,Refugees displaced persons forced migration asylum seekers
+Theme,REL_ANTISEMITISM,Anti-semitism
+Theme,RELATIONS,"Narrow focus on ""improving relations"" ""restarting talks"" ""bilateral talks"" etc"
+Theme,RELEASE_HOSTAGE,A hostage being released
+Theme,RELEASE_PRISON,Someone being released from prison/jail
+Theme,RELIGION,"Just mention of terms like ""religion"" or ""secular"" not actual religions"
+Theme,RESIGNATION,A resignation
+Theme,RETALIATE,"Actual mentions of ""reprisals"" ""avenge"" ""strike back"" etc"
+Theme,RETIREMENT,"Any mention of ""retirement"" (not ""retiring"" etc) or pensions."
+Theme,RETIREMENTS,A retirement
+Theme,ROAD_INCIDENT,Bridge/road failure crashes and accidents.
+Theme,RURAL,Discussion of the rural environment
+Theme,SANCTIONS,Sanctions and embargoes
+Theme,SANITATION,Any mention related to sanitation toilets etc
+Theme,SCANDAL,Mention of scandal disgraced etc where it has been self-identified in the text as a scandal
+Theme,SCIENCE,Just mentions of scientist researcher invention innovation scientific discovery etc
+Theme,SECURITY_SERVICES,Discussion of primarily internal security services like police law enforcement secret police and also peacekeepers
+Theme,SEIGE,Seiges besieging blockades checkpoints etc
+Count,SEIZE,Something being seized (often drugs illegal materials etc)
+Theme,SELF_IDENTIFIED_ATROCITY,Only captures atrocities identified as such in the text (atrocity genocide war crime etc) not actions that could be construed as a crime but where the text does not draw that distinction
+Theme,SELF_IDENTIFIED_ENVIRON_DISASTER,"Articles where the text explicitly mentions ""ecological disaster"" ""environmental catastrophe"" etc"
+Theme,SELF_IDENTIFIED_HUMAN_RIGHTS,"Mentions of ""human rights"" ""political freedom"" ""religious freedom"" ""freedom of speech"" etc - only explicit mentions where the text explicitly identified a human rights issue"
+Theme,SELF_IDENTIFIED_HUMANITARIAN_CRISIS,Humanitarian crises aid disasters disaster relief etc
+Theme,SEPARATISTS,Self-identified discussion of separatists
+Theme,SHORTAGE,Shortages blackouts brownouts rationing etc of anything
+Count,SICKENED,This category counts anything being sickened
+Theme,SLFID_CAPACITY_BUILDING,Self-identified discussion of capacity building
+Theme,SLFID_CIVIL_LIBERTIES,Self-identified discussion of civil liberties
+Theme,SLFID_DICTATORSHIP,Self-identified discussion of dictatorship
+Theme,SLFID_ECONOMIC_DEVELOPMENT,Self-identified discussion of economic development
+Theme,SLFID_ECONOMIC_POWER,Self-identified discussion of economic power
+Theme,SLFID_MILITARY_BUILDUP,Self-identified discussion of military buildup
+Theme,SLFID_MILITARY_READINESS,Self-identified discussion of military readiness
+Theme,SLFID_MILITARY_SPENDING,Self-identified discussion of military spending
+Theme,SLFID_MINERAL_RESOURCES,Self-identified discussion of mineral wealth mineral resources mineral exports
+Theme,SLFID_NATURAL_RESOURCES,Self-identified discussion of natural resources
+Theme,SLFID_PEACE_BUILDING,Self-identified discussion of peace building
+Theme,SLFID_POLITICAL_BOUNDARIES,Self-identified discussion of political boundaries
+Theme,SLFID_RULE_OF_LAW,Self-identified discussion of rule of law
+Theme,SLUMS,Slums shantytowns etc
+Theme,SMUGGLING,Smuggling of anything including arms traficking
+Theme,SOC_DIPLOMCOOP,Diplomatic cooperation
+Theme,SOC_ECONCOOP,Economic cooperation
+Theme,SOC_EXPRESSREGRET,Expressing regret
+Theme,SOC_EXPRESSSUPPORT,Expressing support for a person action or similar
+Theme,SOC_FORCEDRELOCATION,Forced relocation
+Theme,SOC_GENERALCRIME,Relating to general criminal activity
+Theme,SOC_INTELSHARING,Intelligence sharing
+Theme,SOC_JUDICIALCOOP,Judicial cooperation
+Theme,SOC_MASSMIGRATION,Forced migration
+Theme,SOC_PARDON,Relating to pardoning
+Theme,SOC_SUICIDE,Relating to suicide
+Theme,SOC_SUSPICIOUSACTIVITIES,"Specific mentions of ""suspicious"" activities"
+Theme,SOC_SUSPICIOUSPEOPLE,"Specific mentions of ""suspicious"" persons"
+Theme,SOC_TRAFFICACCIDENT,Traffic accidents
+Theme,SOVEREIGNTY,"Actual mentions of ""sovereignty"" ""proclaim independence"" ""independent state"" etc"
+Theme,STATE_OF_EMERGENCY,Martial law state of emergency emergency rule etc
+Theme,STRIKE,Strikes work stoppages lock outs etc
+Theme,SUICIDE_ATTACK,Suicide attacks
+Theme,SURVEILLANCE,Surveillance spying.
+Theme,TAKE_OFFICE,Mention of someone taking office either through force or through normal channels (took office seized office etc)
+Taxonomy,TAX_CARTELS,Returns any mention of a major recognized drug cartel
+Taxonomy,TAX_DISEASE,Returns any mention of a major infectious disease
+Taxonomy,TAX_ETHNICITY,Returns any mention of a major ethnicity from around the world (expands CAMEOETH)
+Taxonomy,TAX_FNCACT,"Returns any mention of a ""functional actor"" which is essentially a ""role"" from a ""child"" to a ""burgler"" to get a better understanding of the specific roles of people involved "
+Taxonomy,TAX_FOODSTAPLES,Captures a cross-section of major food staples like bread rice etc
+Taxonomy,TAX_MILITARY_TITLE,Returns any mention of a major military title such as Captain 1st Lieutenant etc
+Taxonomy,TAX_POLITICAL_PARTY,Returns any mention of a major recognized political party around the world
+Taxonomy,TAX_RELIGION,Returns any mention of a major religion from around the world (expands CAMEOREL)
+Taxonomy,TAX_SPECIAL_ISSUES,Returns mentions of special issues such as certain major laws and will eventually be replaced by a new tracking system for those
+Taxonomy,TAX_SPECIALDEATH,Special kinds of death such as beheadings
+Taxonomy,TAX_TERROR_GROUP,Returns any mention of a major recognized terror group around the world
+Taxonomy,TAX_WEAPONS,Specific weaponry
+Theme,TERROR,Primary discussion of terrorists bombings assasinations etc
+Theme,TORTURE,"Just mentions of the term ""torture"" not actual torture techniques like waterboarding"
+Theme,TOURISM,"Actual mentions of ""tourism"" ""tourists"" etc not related terms"
+Theme,TRAFFIC,Road traffic.
+Theme,TRANSPARENCY,Any mention of transparency or accountability.
+Theme,TREASON,Treason sedition insurrection.
+Theme,TRIAL,Trail courts judges lawyers lawsuits etc
+Theme,UNEMPLOYMENT,Joblessness unemployment
+Theme,UNGOVERNED,Ungoverned spaces
+Theme,UNREST_CHECKPOINT,Relating to checkpoints
+Theme,UNREST_CLOSINGBORDER,Closing borders
+Theme,UNREST_HUNGERSTRIKE,Hunger strikes
+Theme,UNREST_MOLOTOVCOCKTAIL,Molotov cocktails
+Theme,UNREST_POLICEBRUTALITY,Police brutality
+Theme,UNREST_STONETHROWING,Stone throwing
+Theme,UNREST_STONING,Stoning
+Theme,UNSAFE_WORK_ENVIRONMENT,Work injuries killed on the job working conditions etc.
+Theme,URBAN,Discussion of the urban environment
+Theme,URBAN_SPRAWL,Urban sprawl
+Theme,VANDALIZE,Vandalizing desecration defacing
+Theme,VETO,"Actual mentions of ""veto"" ""voted against"" etc"
+Theme,VIOLENT_UNREST,Discussion of violent unrest from rubber bullets firing into a crowd clashes with police or soldiers violent rioting etc
+Theme,WATER_SECURITY,Drought water access lack of rain clean water etc
+Theme,WHISTLEBLOWER,Whistleblowers document leaks etc
+Theme,WMD,Weapons of mass distruction from nuclear to biological to chemical warfare
+Count,WOUND,Any mention of something being wounded or injured

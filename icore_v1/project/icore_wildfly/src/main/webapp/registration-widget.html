@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript" charset="utf-8" id="wui-comp">
+
+	var drawLayer;
+	var dragLayer;
+	var konvaStage;
+	var tween = null;
+
+	var windowWidth = window.innerWidth;
+	var windowHeight = window.innerHeight;
+	var saveData = {};
+	
+	webix.codebase = "./konva/";
+
+	var people_data = { id:1, name:"James Schaffer", email:"drsquatsalot@protonmail.com", phoneNumber:"8058787635"};
+	
+	master = webix.ui({
+		container:"testA",
+		rows:[
+	        { height:"0", rows:[
+	            {rows:[
+	            	{ type:"header", template:"New User"},
+		            { width:"180", id:"form", view:"form", elements:[
+			            { view:"text", name:"name", placeholder:"Name"},  
+			            { view:"text", name:"email", placeholder:"E-mail Address"},
+			            { view:"text", name:"phoneNumber", placeholder:"Phone Number"},
+			            { view:"button", value:"Register", width:180, click:"register_clickHandler"},
+	            	]},
+	            	
+	            ]},
+	            {rows:[
+	            	{ type:"header", template:"User Registry"},
+	            	{width:"180", view:"toolbar",  elements:[
+		            	{cols:[
+			            	{ view:"button", value:"Save", width:180, click:"save_clickHandler"},
+			            	{ view:"button", value:"Load", width:180, click:"load_clickHandler"},
+			            ]}
+		            	
+		            ]},
+		            {
+		                view:"list", 
+		                id:"webixlist",
+		                width:"380",
+		                height:"500",
+		                template:"#name#, #email#, #phoneNumber#",
+		                select:true //enables selection 
+		            },
+	            ]},
+
+	            
+	        ]}
+				
+		]
+	});
+
+	/*toolbar = webix.ui({
+		container:"testB",
+		height:"800",
+        rows:[
+        	{ view:"toolbar", elements:[
+	            {rows:[
+	            	{ view:"button", value:"Add", width:100,click:"addStarPrime" },
+		            { view:"button", value:"Delete", width:100 }
+		         ]}
+	        ]}
+        ]
+	});*/
+
+	function register_clickHandler() {
+		var person = {
+	        name: $$("form").getValues().name,
+	        email: $$("form").getValues().email,
+	        phoneNumber: $$("form").getValues().phoneNumber
+	    }
+	    registerMember(person);
+	}
+	
+	function save_clickHandler() {
+// 		var sel = $$("webixlist").getSelectedId();
+// 	    if(!sel) return;
+	    
+// 		saveData[ JSON.stringify( $$("webixlist").getItem(sel) ) ] = konvaStage.toJSON();
+
+// 		console.log( saveData[ JSON.stringify( $$("webixlist").getItem(sel) ) ] );
+		
+	}
+
+	function load_clickHandler() {
+		var sel = $$("webixlist").getSelectedId();
+	    if(!sel) return;
+// 	    if (saveData[ JSON.stringify( $$("webixlist").getItem(sel) ) ] == null) return;
+
+// 	    konvaStage.clear();
+// 	    konvaStage = Konva.Node.create(saveData[ JSON.stringify( $$("webixlist").getItem(sel) ) ], "konva-container");
+// 	    attachHandlers();
+		var treeData = $$("webixlist").getItem(sel).recommendationData;
+		console.log( treeData );
+		renderTree(JSON.parse(treeData));
+	}
+	
+    function addStarPrime() {
+        var w = konvaStage.width();
+        var h = konvaStage.height();
+        console.log("stage w: "+ w + ", stage h: " + h );
+	    var star = addStar(drawLayer, w, h);
+	    star.draw();
+	}
+
+    function addStar(layer, width, height) {
+    	
+        var scale = 0.5 + 0.5*Math.random();
+        var star = new Konva.Circle({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius:100,
+            fill: '#89b717',
+            opacity: 0.8,
+            draggable: true,
+            scale: {
+                x : scale,
+                y : scale
+            },
+            rotation: Math.random() * 180,
+            startScale: scale
+        });
+        layer.add(star);
+        return star;
+    }
+	
+	function init(){
+
+		konvaStage = new Konva.Stage({
+			  container: 'konva-container',   // id of container <div>
+			  width: 1000,
+			  height: 800
+		});
+	    
+	    konvaStage.add(new Konva.Layer());
+	    konvaStage.add(new Konva.Layer());
+
+		attachHandlers();
+	}
+
+	function attachHandlers(){
+		drawLayer = konvaStage.getLayers()[0];
+		dragLayer = konvaStage.getLayers()[1];
+	    // bind stage handlers
+	    konvaStage.on('mousedown', function(evt) {
+	        var shape = evt.target;
+	        shape.moveTo(dragLayer);
+	        konvaStage.draw();
+	        // restart drag and drop in the new layer
+	        shape.startDrag();
+	    });
+	    konvaStage.on('mouseup', function(evt) {
+	        var shape = evt.target;
+	        shape.moveTo(drawLayer);
+	        konvaStage.draw();
+	    });
+	    konvaStage.on('dragstart', function(evt) {
+	        var shape = evt.target;
+	        if (tween) {
+	            tween.pause();
+	        }
+	        shape.setAttrs({
+	            scale: {
+	                x: shape.getAttr('startScale') * 1.2,
+	                y: shape.getAttr('startScale') * 1.2
+	            },
+	            fill: '#0000FF'
+	        });
+	    });
+	    konvaStage.on('dragend', function(evt) {
+	        var shape = evt.target;
+	        shape.setAttrs({fill:'#89b717'})
+	        tween = new Konva.Tween({
+	            node: shape,
+	            duration: 0.5,
+	            easing: Konva.Easings.ElasticEaseOut,
+	            scaleX: shape.getAttr('startScale'),
+	            scaleY: shape.getAttr('startScale'),
+	        });
+	        tween.play();
+	    });
+
+	}
+
+	webix.event(window, "resize", function(){ master.adjust(); })
+
+</script>
+
+
+</html>
