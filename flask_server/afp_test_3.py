@@ -16,17 +16,18 @@ import os
 import sys
 import pandas as pd
 
-#import findspark
-#findspark.init()
+import findspark
+findspark.init()
 
 #initialize pyspark location on os
 
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=10.1.3.115 pyspark-shell'
-#os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=127.0.0.1 pyspark-shell'
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=127.0.0.1 pyspark-shell'
 from pyspark import SparkContext
+from pyspark import SparkConf
 
+conf = SparkConf().set('spark.driver.host','127.0.0.1')
+sc = SparkContext(master="local", appName="article data app", conf=conf)
 
-sc = SparkContext("local", "article data app")
 from pyspark.sql import SQLContext
 sqlContext = SQLContext(sc)
 
@@ -220,4 +221,4 @@ def userEventsG():
 
 
 if __name__ == '__main__':
-     app.run(port=5000, host='0.0.0.0')
+     app.run(port=5000)

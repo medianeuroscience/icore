@@ -2,4 +2,15 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
+    grid-column-gap: 30px;
   }
+
+.second {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+mat-card.mapBox{
+  background-color: black;
+}
