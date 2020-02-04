@@ -178,11 +178,18 @@ def userGkgG():
     global meta
     global format
 
+    parameters = {}
 
-    print(entity[0])
-    print(country[0])
+    if year != []:
+        parameters['gkg_day'] = str(year[0])
 
-    parameters = {"gkg_day": str(year[0]), "named_entities": str(entity[0])}
+    if entity != []:
+        parameters['named_entities'] = str(entity[0])
+
+    if country != []:
+        parameters['source_location'] = str(country[0])
+
+    print(parameters)
 
 
 
