@@ -178,19 +178,17 @@ def userGkgG():
     global meta
     global format
 
-    parameters = {"gkg_day": str(year[0]), "entity": str(entity[0]), "tone_avg": str(month[0]), "topic": str(topic[0]), "dictionary": str(dictionary[0]),
-    "user_email": str(user_email[0]), "source_location": str(country[0]), "keyword": str(keyword[0]), "issue": str(issue[0]), "meta": str(meta[0]), "format": str(format[0])}
 
-    filtered_param = {k:v for (k,v) in parameters.items() if len(v) > 1}
+    print(year[0])
 
-    url = ','.join("'{}'".format(v) for k,v in filtered_param.items() if v)
-    print(url)
+
 
     #pull data from cassandra table
     cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra")\
-    .options(table= "gkg_query", keyspace = "scraped_articles")\
+    .options(table= "gkg_record_by_day", keyspace = "icore_new")\
     .load()\
-    .select('gkg_day', 'gcam', 'location', 'tone_avg', 'format')
+    .select('tone_avg', 'gkg_day')
+   #.select('gkg_day', 'gcam', 'location', 'tone_avg', 'format')
 
 
     _start = str(year[0]) + '/'+ str(month[0]) + '/01'
@@ -206,7 +204,7 @@ def userGkgG():
     sqlDfList = []
 
     for i in time_range:
-        cassDF_byTime = sqlContext.sql("""SELECT tone_avg, format FROM sqlTable WHERE gkg_day == '{}'""".format(i))
+        cassDF_byTime = sqlContext.sql("""SELECT tone_avg FROM sqlTable WHERE gkg_day = '{}'""".format(i))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
         cass_Pandas = cassDF_byTime.toPandas()
         sqlDfList.append(cass_Pandas)
@@ -370,4 +368,4 @@ def userEventsG():
 
 
 if __name__ == '__main__':
-     app.run(port=5000)
+     app.run(port=5000, host='0.0.0.0')
