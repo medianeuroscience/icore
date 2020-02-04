@@ -180,17 +180,17 @@ def userGkgG():
 
     parameters = {}
 
-    if year == []:
+    if len(year) == 0:
         print(str(year) + " is empty")
     else:
         parameters['gkg_day'] = str(year[0])
 
-    if entity == []:
+    if len(entity) == 0:
         print(str(entity) + " is empty")
     else:
         parameters['named_entities'] = str(entity[0])
 
-    if country == []:
+    if len(country) == 0:
         print(str(country) + " is empty")
     else:
         parameters['source_location'] = str(country[0])
