@@ -17,17 +17,17 @@ import sys
 
 import pandas as pd
 
-import findspark
-findspark.init()
+#import findspark
+#findspark.init()
 
 #initialize pyspark location on os
 
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=127.0.0.1 pyspark-shell'
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=10.1.3.115 pyspark-shell'
 from pyspark import SparkContext
 from pyspark import SparkConf
 
-conf = SparkConf().set('spark.driver.host','127.0.0.1')
-sc = SparkContext(master="local", appName="article data app", conf=conf)
+#conf = SparkConf().set('spark.driver.host','127.0.0.1')
+sc = SparkContext(master="local", appName="article data app")
 
 from pyspark.sql import SQLContext
 sqlContext = SQLContext(sc)
@@ -179,12 +179,12 @@ def userGkgG():
 
     #pull data from cassandra table
     cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra")\
-    .options(table= "angular_forms", keyspace = "scraped_articles")\
+    .options(table= "gkg_record_by_day", keyspace = "icore_new")\
     .load()\
-    .select('year', 'topics', 'entity', 'dict', 'english', 'month')
+    .select('tone_avg', 'gkg_day')
 
     sqlDf = cassDf.registerTempTable('sqlTable')
-    cassDF_byTime = sqlContext.sql("""SELECT * FROM sqlTable WHERE year == '{}'""".format(str(year[0])))
+    cassDF_byTime = sqlContext.sql("""SELECT tone_avg FROM sqlTable WHERE gkg_day = '{}'""".format(str(year[0])))
 
     #query through a sql context
     cassDF_byTime.toPandas().to_csv('output_files.csv')
@@ -226,7 +226,7 @@ def userGkgG():
 
     part.add_header(
         "Content-Disposition",
-        f"attachment; filename= {filename}",
+        "attachment; filename={}".format(filename),
     )
 
     #add attachment to message and convert message to string
@@ -344,4 +344,4 @@ def userEventsG():
 
 
 if __name__ == '__main__':
-     app.run(port=5000)
+     app.run(port=5000, host='0.0.0.0')
