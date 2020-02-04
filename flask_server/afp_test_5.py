@@ -180,6 +180,10 @@ def userGkgG():
 
     parameters = {}
 
+    print(year)
+    print(country)
+
+
     if len(year) == 0:
         print(str(year) + " is empty")
     else:
