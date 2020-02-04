@@ -181,21 +181,22 @@ def userGkgG():
     parameters = {}
 
     if year == []:
-        print(year " is empty")
+        print(year + " is empty")
     else:
         parameters['gkg_day'] = str(year[0])
 
     if entity == []:
-        print(entity " is empty")
+        print(entity + " is empty")
     else:
         parameters['named_entities'] = str(entity[0])
 
     if country == []:
-        print(country  " is empty")
+        print(country + " is empty")
     else:
         parameters['source_location'] = str(country[0])
 
     print(parameters)
+
 
 
 
