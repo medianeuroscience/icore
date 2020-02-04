@@ -14,8 +14,8 @@ const httpOptions = {
 })
 
 export class QueryEvent {
-  _url = 'http://169.231.235.236:5000/api/usereventsp';
-  _urlview = 'http://169.231.235.236:5000/api/usereventsg';
+  _url = 'http://localhost:5000/api/usereventsp';
+  _urlview = 'http://localhost:5000/api/usereventsg';
 
   constructor(private _http: HttpClient) { }
 

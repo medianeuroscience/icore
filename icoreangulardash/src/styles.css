@@ -26,6 +26,24 @@ table{
   width: 100%;
 }
 
+.line{
+   fill: none;
+   stroke: #ffab00;
+   stroke-width: 3;
+}
+
+.bar {
+fill: purple;
+}
+
+.bar:hover { fill: gold;
+}
+
+.axis-title {
+fill: none;
+stroke: black; stroke-width: 0.4px;
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Ubuntu }

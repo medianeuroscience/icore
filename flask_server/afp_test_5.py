@@ -16,6 +16,7 @@ import os
 import sys
 
 import pandas as pd
+import numpy as np
 
 import findspark
 findspark.init()
@@ -177,17 +178,42 @@ def userGkgG():
     global meta
     global format
 
+    parameters = {"gkg_day": str(year[0]), "entity": str(entity[0]), "tone_avg": str(month[0]), "topic": str(topic[0]), "dictionary": str(dictionary[0]),
+    "user_email": str(user_email[0]), "source_location": str(country[0]), "keyword": str(keyword[0]), "issue": str(issue[0]), "meta": str(meta[0]), "format": str(format[0])}
+
+    filtered_param = {k:v for (k,v) in parameters.items() if len(v) > 1}
+
+    url = ','.join("'{}'".format(v) for k,v in filtered_param.items() if v)
+    print(url)
+
     #pull data from cassandra table
     cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra")\
-    .options(table= "angular_forms", keyspace = "scraped_articles")\
+    .options(table= "gkg_query", keyspace = "scraped_articles")\
     .load()\
-    .select('year', 'topics', 'entity', 'dict', 'english', 'month')
+    .select('gkg_day', 'gcam', 'location', 'tone_avg', 'format')
+
+
+    _start = str(year[0]) + '/'+ str(month[0]) + '/01'
+    _end =  str(year[0]) + '/'+ str(month[0]) + '/03'
+
+    time_range = pd.date_range(start=_start, end=_end)
+    time_range= time_range.values.astype('<M8[D]').astype(str)
+
 
     sqlDf = cassDf.registerTempTable('sqlTable')
-    cassDF_byTime = sqlContext.sql("""SELECT * FROM sqlTable WHERE year == '{}'""".format(str(year[0])))
+
+
+    sqlDfList = []
+
+    for i in time_range:
+        cassDF_byTime = sqlContext.sql("""SELECT tone_avg, format FROM sqlTable WHERE gkg_day == '{}'""".format(i))
+        #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
+        cass_Pandas = cassDF_byTime.toPandas()
+        sqlDfList.append(cass_Pandas)
 
     #query through a sql context
-    cassDF_byTime.toPandas().to_csv('output_files.csv')
+    sqlDfList_output = pd.concat(sqlDfList).to_csv('output_iter_files.csv')
+
 
     #turn pyspark dataframe into pandas and stored as csv on local machine
 
@@ -210,7 +236,7 @@ def userGkgG():
     message.attach(MIMEText(body, "plain"))
     #add body plain text to email
 
-    filename = "output_files.csv"
+    filename = "output_iter_files.csv"
     #store email file in local folder
 
     #open a file in binary mode
@@ -253,7 +279,7 @@ def userGkgG():
     meta = []
     format = []
 
-    return 'working' + ' ' + str(words)
+    return 'working'
 
 
 @app.route('/api/usereventsg', methods=['GET', 'POST'])

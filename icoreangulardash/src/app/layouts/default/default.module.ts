@@ -19,6 +19,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule} from '@angular/material/button';
 import { MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 import { HttpClientModule } from  '@angular/common/http';
 
@@ -50,6 +51,7 @@ import { HttpClientModule } from  '@angular/common/http';
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
+    MatCardModule,
     HttpClientModule
   ]
 })

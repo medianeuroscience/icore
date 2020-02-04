@@ -14,8 +14,8 @@ const httpOptions = {
 })
 export class QueryGKG {
 
-  _url = 'http://169.231.235.236:5000/api/usergkgp';
-  _urlview = 'http://169.231.235.236:5000/api/usergkgg';
+  _url = 'http://localhost:5000/api/usergkgp';
+  _urlview = 'http://localhost:5000/api/usergkgg';
 
   constructor(private _http: HttpClient) { }
 
