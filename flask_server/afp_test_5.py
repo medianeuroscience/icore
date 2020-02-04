@@ -179,7 +179,10 @@ def userGkgG():
     global format
 
 
-    print(year[0])
+    print(entity[0])
+    print(country[0])
+
+    parameters = {"gkg_day": str(year[0]), "named_entities": str(entity[0])}
 
 
 
@@ -192,7 +195,7 @@ def userGkgG():
 
 
     _start = str(year[0]) + '/'+ str(month[0]) + '/01'
-    _end =  str(year[0]) + '/'+ str(month[0]) + '/03'
+    _end =  str(year[0]) + '/'+ str(month[0]) + '/02'
 
     time_range = pd.date_range(start=_start, end=_end)
     time_range= time_range.values.astype('<M8[D]').astype(str)
