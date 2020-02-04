@@ -18,17 +18,17 @@ import sys
 import pandas as pd
 import numpy as np
 
-import findspark
-findspark.init()
+#import findspark
+#findspark.init()
 
 #initialize pyspark location on os
 
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=127.0.0.1 pyspark-shell'
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=10.1.3.115 pyspark-shell'
 from pyspark import SparkContext
-from pyspark import SparkConf
+#from pyspark import SparkConf
 
-conf = SparkConf().set('spark.driver.host','127.0.0.1')
-sc = SparkContext(master="local", appName="article data app", conf=conf)
+#conf = SparkConf().set('spark.driver.host','127.0.0.1')
+sc = SparkContext(master="local", appName="article data app")
 
 from pyspark.sql import SQLContext
 sqlContext = SQLContext(sc)
@@ -149,7 +149,7 @@ def userSurveysG():
 
 
 
-    words = {'col1': survey_email, 'col2': location, 'col3': description}
+    words = {'survey_email': survey_email, 'user_location': location, 'project_desc': description, 'user_profession': profession, 'user_institution': institution}
     user_df = pd.DataFrame(data=words)
     user_df.to_csv("userSurvey.csv")
 
