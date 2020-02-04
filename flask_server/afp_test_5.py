@@ -180,8 +180,8 @@ def userGkgG():
 
     parameters = {}
 
-    print(year)
-    print(country)
+    print(year[0])
+    print(country[0])
 
 
     if len(year) == 0:
