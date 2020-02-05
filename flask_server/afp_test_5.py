@@ -268,8 +268,8 @@ def userGkgG():
         cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, i))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
         if 'source_location' in  paras_list:
-            cassDF_byTime.filter(cassDF_byTime.source_location == str(country[0]))
-            cass_Pandas = cassDF_byTime.toPandas()
+            cassDF_byTime2 = cassDF_byTime.filter(cassDF_byTime.source_location == str(country[0]))
+            cass_Pandas = cassDF_byTime2.toPandas()
             sqlDfList.append(cass_Pandas)
 
     #query through a sql context
