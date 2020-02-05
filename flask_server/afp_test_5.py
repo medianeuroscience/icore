@@ -269,12 +269,12 @@ def userGkgG():
         cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, i))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
 
-        cassDF_byTime_filt = cassDF_byTime.filter(f.col('source_location') == str(country[0]))
-        cass_Pandas = cassDF_byTime_filt.toPandas()
+        cassDF_byTime2 = cassDF_byTime.filter("""source_location == '{}'""".format(str(country[0]))
+        cass_Pandas = cassDF_byTime2.toPandas()
         sqlDfList.append(cass_Pandas)
 
     #query through a sql context
-    sqlDfList_output = pd.concat(sqlDfList).to_csv('output_iter_files.csv')
+    sqlDfList_output = pd.concat(sqlDfList).to_csv('output_iter_files2.csv')
 
 
     #turn pyspark dataframe into pandas and stored as csv on local machine
@@ -298,7 +298,7 @@ def userGkgG():
     message.attach(MIMEText(body, "plain"))
     #add body plain text to email
 
-    filename = "output_iter_files.csv"
+    filename = "output_iter_files2.csv"
     #store email file in local folder
 
     #open a file in binary mode
