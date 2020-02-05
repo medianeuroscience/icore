@@ -14,6 +14,7 @@ from email.mime.text import MIMEText
 
 import os
 import sys
+import time
 
 import pandas as pd
 import numpy as np
@@ -80,20 +81,73 @@ def userGkgP():
     global format
 
     data = request.json
-    year.append(data['year'])
-    entity.append(data['entity'])
-    month.append(data['month'])
-    topic.append(data['topic'])
-    if data['dictionary'] != 'default':
+
+    if data['year'] == '':
+        data['year'] = 'empty'
+        year.append(data['year'])
+    else:
+        year.append(data['year'])
+
+    if data['entity'] == '':
+        data['entity'] = 'empty'
+        entity.append(data['entity'])
+    else:
+        entity.append(data['entity'])
+
+    if data['month'] == '':
+        data['month'] = 'empty'
+        month.append(data['month'])
+    else:
+        month.append(data['month'])
+
+    if data['topic'] == 'default':
+        data['topic'] = 'empty'
+        topic.append(data['topic'])
+    else:
+        topic.append(data['topic'])
+
+    if data['dictionary'] == '':
+        data['dictionary'] = 'empty'
         dictionary.append(data['dictionary'])
-    user_email.append(data['email'])
-    if data['country'] != 'default':
+    else:
+        dictionary.append(data['dictionary'])
+
+    if data['email'] == '':
+        data['email'] = 'empty'
+        user_email.append(data['email'])
+    else:
+        user_email.append(data['email'])
+
+    if data['country'] == 'default':
+        data['country'] = 'empty'
         country.append(data['country'])
-    keyword.append(data['keyword'])
-    if data['issue'] != 'default':
+    else:
+        country.append(data['country'])
+
+    if data['keyword'] == '':
+        data['keyword'] = 'empty'
+        keyword.append(data['keyword'])
+    else:
+        keyword.append(data['keyword'])
+
+    if data['issue'] == 'default':
+        data['issue'] = 'empty'
         issue.append(data['issue'])
-    meta.append(data['meta'])
-    format.append(data['format'])
+    else:
+        issue.append(data['issue'])
+
+    if data['meta'] == '':
+        data['meta'] = 'empty'
+        meta.append(data['meta'])
+    else:
+        meta.append(data['meta'])
+
+    if data['format'] == '':
+        data['format'] = 'empty'
+        format.append(data['format'])
+    else:
+        format.append(data['format'])
+
     return request.json
 
 
@@ -178,37 +232,23 @@ def userGkgG():
     global meta
     global format
 
-    parameters = {}
+    time.sleep(1)
 
-    print(year[0])
-    print(country[0])
+    parameters = {'gkg_day': str(year[0]), 'source_location': str(country[0]), 'named_entities': str(entity[0]), 'gcam_data': str(dictionary[0])}
 
+    filtered_param = {k: v for (k, v) in parameters.items() if v != 'empty'}
 
-    if len(year) == 0:
-        print(str(year) + " is empty")
-    else:
-        parameters['gkg_day'] = str(year[0])
+    paras = ','.join("{}".format(k)
 
-    if len(entity) == 0:
-        print(str(entity) + " is empty")
-    else:
-        parameters['named_entities'] = str(entity[0])
-
-    if len(country) == 0:
-        print(str(country) + " is empty")
-    else:
-        parameters['source_location'] = str(country[0])
-
-    print(parameters)
-
-
+    for k, v in filtered_param.items() if v)
+    paras = paras.replace("'", "")
+    print(url)
 
 
     #pull data from cassandra table
     cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra")\
     .options(table= "gkg_record_by_day", keyspace = "icore_new")\
-    .load()\
-    .select('tone_avg', 'gkg_day')
+    .load()
    #.select('gkg_day', 'gcam', 'location', 'tone_avg', 'format')
 
 
@@ -225,7 +265,7 @@ def userGkgG():
     sqlDfList = []
 
     for i in time_range:
-        cassDF_byTime = sqlContext.sql("""SELECT tone_avg FROM sqlTable WHERE gkg_day = '{}'""".format(i))
+        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, i))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
         cass_Pandas = cassDF_byTime.toPandas()
         sqlDfList.append(cass_Pandas)
