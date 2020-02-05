@@ -270,9 +270,9 @@ def userGkgG():
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
         for k,  v in filtered_param.items():
             if k != 'gkg_day':
-                cassDF_byTime2 = cassDF_byTime.filter("""{} == '{}'""".format(k, v))
-                cass_Pandas = cassDF_byTime2.toPandas()
+                cassDF_byTime = cassDF_byTime.filter("""{} == '{}'""".format(k, v))
 
+        cass_Pandas = cassDF_byTime.toPandas()
         sqlDfList.append(cass_Pandas)
 
     #query through a sql context
