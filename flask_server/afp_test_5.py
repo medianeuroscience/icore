@@ -239,10 +239,10 @@ def userGkgG():
     filtered_param = {k: v for (k, v) in parameters.items() if v != 'empty'}
 
     paras = ','.join("{}".format(k)
+    paras_list = paras.split(",")
 
     for k, v in filtered_param.items() if v)
     paras = paras.replace("'", "")
-    print(paras)
 
 
     #pull data from cassandra table
@@ -267,8 +267,10 @@ def userGkgG():
     for i in time_range:
         cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, i))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
-        cass_Pandas = cassDF_byTime.toPandas()
-        sqlDfList.append(cass_Pandas)
+        if 'source_location' in  paras_list:
+            cassDF_byTime.filter(cassDF_byTime.source_location == str(country[0]))
+            cass_Pandas = cassDF_byTime.toPandas()
+            sqlDfList.append(cass_Pandas)
 
     #query through a sql context
     sqlDfList_output = pd.concat(sqlDfList).to_csv('output_iter_files.csv')
