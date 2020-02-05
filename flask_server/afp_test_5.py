@@ -256,7 +256,7 @@ def userGkgG():
 
 
     _start = str(year[0]) + '/'+ str(month[0]) + '/01'
-    _end =  str(year[0]) + '/'+ str(month[0]) + '/02'
+    _end =  str(year[0]) + '/'+ str(month[0]) + '/30'
 
     time_range = pd.date_range(start=_start, end=_end)
     time_range= time_range.values.astype('<M8[D]').astype(str)
