@@ -241,6 +241,8 @@ def userGkgG():
 
     paras = ','.join("{}".format(k) for k, v in filtered_param.items() if v)
 
+    paras_input = ''.join("AND {} = '{}'".format(k,v) for k, v in filtered_param.items() if v)
+
     paras_list = paras.split(",")
 
     paras = paras.replace("'", "")
@@ -266,13 +268,8 @@ def userGkgG():
     sqlDfList = []
 
     for t in time_range:
-        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, t))
+        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}' {}""".format(paras, t, paras_input))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
-        for k,  v in filtered_param.items():
-            if k != 'gkg_day':
-                k = k.replace("'", "")
-                cassDF_byTime = cassDF_byTime.filter("""{} == '{}'""".format(k, v))
-                print(k, v)
 
         cass_Pandas = cassDF_byTime.toPandas()
         sqlDfList.append(cass_Pandas)
