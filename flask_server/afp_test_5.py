@@ -242,7 +242,7 @@ def userGkgG():
 
     for k, v in filtered_param.items() if v)
     paras = paras.replace("'", "")
-    print(url)
+    print(paras)
 
 
     #pull data from cassandra table
