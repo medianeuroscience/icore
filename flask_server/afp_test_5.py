@@ -235,7 +235,7 @@ def userGkgG():
 
     time.sleep(1)
 
-    parameters = {'gkg_day': str(year[0]), 'source_location': str(country[0]), 'named_entities': str(entity[0]), 'gcam_data': str(dictionary[0])}
+    parameters = {'gkg_day': str(year[0]), 'source_location': str(country[0]), 'source': str(entity[0]), 'gcam_data': str(dictionary[0])}
 
     filtered_param = {k: v for (k, v) in parameters.items() if v != 'empty'}
 
@@ -265,11 +265,14 @@ def userGkgG():
 
     sqlDfList = []
 
-    for i in time_range:
-        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, i))
+    for t in time_range:
+        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, t))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
-        cassDF_byTime2 = cassDF_byTime.filter("""source_location == '{}'""".format(str(country[0])))
-        cass_Pandas = cassDF_byTime2.toPandas()
+        for k,  v in filtered_param.items():
+            if k != 'gkg_day':
+                cassDF_byTime2 = cassDF_byTime.filter("""{} == '{}'""".format(k, v))
+                cass_Pandas = cassDF_byTime2.toPandas()
+
         sqlDfList.append(cass_Pandas)
 
     #query through a sql context
