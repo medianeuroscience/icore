@@ -256,7 +256,7 @@ def userGkgG():
 
 
     _start = str(year[0]) + '/'+ str(month[0]) + '/01'
-    _end =  str(year[0]) + '/'+ str(month[0]) + '/30'
+    _end =  str(year[0]) + '/'+ str(month[0]) + '/10'
 
     time_range = pd.date_range(start=_start, end=_end)
     time_range= time_range.values.astype('<M8[D]').astype(str)
@@ -268,7 +268,7 @@ def userGkgG():
     sqlDfList = []
 
     for t in time_range:
-        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}' {}""".format(paras, t, paras_input))
+        cassDF_byTime = sqlContext.sql("""SELECT source, {} FROM sqlTable WHERE gkg_day = '{}' {}""".format(paras, t, paras_input))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
 
         cass_Pandas = cassDF_byTime.toPandas()
