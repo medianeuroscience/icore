@@ -239,10 +239,10 @@ def userGkgG():
 
     filtered_param = {k: v for (k, v) in parameters.items() if v != 'empty'}
 
-    paras = ','.join("{}".format(k)
+    paras = ','.join("{}".format(k) for k, v in filtered_param.items() if v)
+
     paras_list = paras.split(",")
 
-    for k, v in filtered_param.items() if v)
     paras = paras.replace("'", "")
 
 
