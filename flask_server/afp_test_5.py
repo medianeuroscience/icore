@@ -18,6 +18,7 @@ import time
 
 import pandas as pd
 import numpy as np
+import pyspark.sql.functions as f
 
 #import findspark
 #findspark.init()
@@ -267,10 +268,10 @@ def userGkgG():
     for i in time_range:
         cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, i))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
-        if 'source_location' in  paras_list:
-            cassDF_byTime2 = cassDF_byTime.filter(cassDF_byTime.source_location == str(country[0]))
-            cass_Pandas = cassDF_byTime2.toPandas()
-            sqlDfList.append(cass_Pandas)
+
+        cassDF_byTime_filt = cassDF_byTime.filter(f.col('source_location') == str(country[0]))
+        cass_Pandas = cassDF_byTime_filt.toPandas()
+        sqlDfList.append(cass_Pandas)
 
     #query through a sql context
     sqlDfList_output = pd.concat(sqlDfList).to_csv('output_iter_files.csv')
