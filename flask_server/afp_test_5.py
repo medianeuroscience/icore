@@ -268,7 +268,7 @@ def userGkgG():
     sqlDfList = []
 
     for t in time_range:
-        cassDF_byTime = sqlContext.sql("""SELECT source, {} FROM sqlTable WHERE gkg_day = '{}' {}""".format(paras, t, paras_input))
+        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}' {}""".format(paras, t, paras_input))
         #cassDF_byTime.toPandas().to_csv(str(i)+'_files.csv')
 
         cass_Pandas = cassDF_byTime.toPandas()
