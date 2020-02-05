@@ -201,10 +201,13 @@ def userGkgG():
         sqlDfList.append(cass_Pandas)
 
     #query through a sql context
-    sqlDfList_output = pd.concat(sqlDfList).to_csv('output_iter_files2.csv')
+    sqlDfList_output = pd.concat(sqlDfList)
+    sqlDfList_output.to_csv('output_iter_files2.csv')
+
+    print(sqlDfList_output.head(5), sqlDfList_output(5))
 
 
-    words = [year, entity, month, topic, dictionary, user_email, country, keyword, issue, meta, format]
+    #words = [year, entity, month, topic, dictionary, user_email, country, keyword, issue, meta, format]
 
     year = []
     entity = []
