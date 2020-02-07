@@ -54,7 +54,7 @@
       <mat-grid-tile>
         <mat-form-field>
           <mat-label>Issues</mat-label>
-          <mat-select #issue="ngModel" name="issue" [(ngModel)] = "userModel.issue">
+          <mat-select #issue="ngModel" name="issue" [(ngModel)] = "userModel.issue" [disabled] = "topic.value !== 'default'">
             <mat-option value="default"> Choose Issue </mat-option>
             <mat-option *ngFor="let issue of issues" [value]="issue">{{ issue }}</mat-option>
           </mat-select>
@@ -64,7 +64,7 @@
       <mat-grid-tile>
         <mat-form-field>
           <mat-label>Topics</mat-label>
-          <mat-select #topic="ngModel" name="topic" [(ngModel)] = "userModel.topic">
+          <mat-select #topic="ngModel" name="topic" [(ngModel)] = "userModel.topic" [disabled] = "issue.value !== 'default'">
           <mat-option value="default"> Choose Topic </mat-option>
           <mat-option *ngFor="let topic of topics" [value]="topic.name">{{ topic.name }}</mat-option>
           </mat-select>
