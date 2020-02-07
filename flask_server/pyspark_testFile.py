@@ -6,6 +6,8 @@ from flask_cors import CORS, cross_origin   #allow cross webpage resource sharin
 import os
 import sys
 import time
+import themesMapping
+import gcamMapping
 
 import pandas as pd
 import numpy as np
@@ -32,26 +34,35 @@ app = Flask(__name__)
 
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-issues_dict = {"taxes" : ["ECON_TAXATION",],
-"unemployment" : [ "UNEMPLOYMENT", ],
-"domestic economy" : ["ECON_BANKRUPTCY", "ECON_BOYCOTT", "ECON_COST_OF_LIVING", "ECON_CUTOUTLOOK", "ECON_DEREGULATION", "ECON_EARNINGSREPORT", "ECON_ENTREPRENEURSHIP", "ECON_HOUSING_PRICES", "ECON_INFORMAL_ECONOMY", "ECON_IPO", "ECON_INTEREST_RATE", "ECON_MONOPOLY", "ECON_MOU", "ECON_NATIONALIZE", "ECON_PRICECONTROL", "ECON_REMITTANCE", "ECON_STOCKMARKET", "ECON_SUBSIDIES", "ECON_UNIONS", "SLFID_ECONOMIC_DEVELOPMENT", "SLFID_ECONOMIC_POWER", "SOC_ECONCOOP"],
-"trade" : ["ECON_TRADE_DISPUTE", "ECON_FOREIGNINVEST", "ECON_FREETRADE", "ECON_CURRENCY_EXCHANGE_RATE", "ECON_CURRENCY_RESERVES", "ECON_DEBT"],
-"terrorism" : ["TAX_TERROR_GROUP", "SUICIDE_ATTACK", "EXTREMISM", "JIHAD", "TERROR", "WMD"],
-"military" : ["ACT_FORCEPOSTURE", "ARMEDCONFLICT", "BLOCKADE", "CEASEFIRE", "MILITARY", "MILITARY_COOPERATION", "PEACEKEEPING", "RELEASE_HOSTAGE", "SEIGE", "SLFID_MILITARY_BUILDUP", "SLFID_MILITARY_READINESS", "SLFID_MILITARY_SPENDING", "SLFID_PEACE_BUILDING", "TAX_MILITARY_TITLE"],
-"international relations" : ["GOV_INTERGOVERNMENTAL", "SOC_DIPLOMCOOP", "RELATIONS"],
-"immigration/refugees" : ["BORDER", "CHECKPOINT", "DISPLACED",  "EXILE", "IMMIGRATION", "REFUGEES", "SOC_FORCEDRELOCATION", "SOC_MASSMIGRATION", "UNREST_CHECKPOINT", "UNREST_CLOSINGBORDER"],
-"health care" : ["GENERAL_HEALTH", "HEALTH_SEXTRANSDISEASE", "HEALTH_VACCINATION", "MEDICAL", "MEDICAL_SECURITY"],
-"gun control" : ["FIREARM_OWNERSHIP", "MIL_SELF_IDENTIFIED_ARMS_DEAL", "MIL_WEAPONS_PROLIFERATION"],
-"drug" : ["CRIME_ILLEGAL_DRUGS", "DRUG_TRADE", "TAX_CARTELS", "CRIME_CARTELS"],
-"police system" : ["UNREST_POLICEBRUTALITY", "SECURITY_SERVICES"],
-"racism" : ["DISCRIMINATION", "HATE_SPEECH"],
-"civil liberties" : ["GENDER_VIOLENCE", "LGBT", "MOVEMENT_SOCIAL",  "MOVEMENT_WOMENS", "SLFID_CIVIL_LIBERTIES"],
-"environment" :  ["ENV_BIOFUEL", "ENV_CARBONCAPTURE", "ENV_CLIMATECHANGE",  "ENV_COAL", "ENV_DEFORESTATION", "ENV_FISHERY", "ENV_FORESTRY", "ENV_GEOTHERMAL", "ENV_GREEN", "ENV_HYDRO", "ENV_METALS", "ENV_MINING", "ENV_NATURALGAS", "ENV_NUCLEARPOWER", "ENV_OIL", "ENV_OVERFISH", "ENV_POACHING", "ENV_WATERWAYS ", "ENV_SOLAR", "ENV_SPECIESENDANGERED", "ENV_SPECIESEXTINCT", "ENV_WINDPOWER", "FUELPRICES", "MOVEMENT_ENVIRONMENTAL", "SELF_IDENTIFIED_ENVIRON_DISASTER", "SLFID_MINERAL_RESOURCES", "SLFID_NATURAL_RESOURCES", "WATER_SECURITY"],
-"party-politics" : ["TAX_POLITICAL_PARTY"],
-"election fraud" : ["ELECTION_FRAUD"],
-"education" : ["EDUCATION"],
-"media/internet" : ["CYBER_ATTACK",  "INTERNET_BLACKOUT", "INTERNET_CENSORSHIP", "MEDIA_CENSORSHIP", "MEDIA_MSM", "MEDIA_SOCIAL", "SURVEILLANCE", "FREESPEECH"],
-}
+
+issues_dict = themesMapping.issues_dict
+gcam_json = gcamMapping.gcam_json
+
+gcam_vars = []
+gcam_dims = []
+gcam_dicts = []
+
+
+for i in range(0, len(gcam_json["data"])):
+
+  if gcam_json["data"][i]["DictionaryHumanName"] == "Moral Foundations Dictionary":
+    gcam_vars.append(gcam_json["data"][i]["Variable"])
+    gcam_dims.append(gcam_json["data"][i]["DimensionHumanName"])
+    gcam_dicts.append(gcam_json["data"][i]["DictionaryHumanName"])
+
+  if gcam_json["data"][i]["DictionaryHumanName"] == "Linguistic Inquiry and Word Count (LIWC)":
+    gcam_vars.append(gcam_json["data"][i]["Variable"])
+    gcam_dims.append(gcam_json["data"][i]["DimensionHumanName"])
+    gcam_dicts.append(gcam_json["data"][i]["DictionaryHumanName"])
+
+  if gcam_json["data"][i]["DictionaryHumanName"] == "Hogenraad's Motive Dictionary":
+    gcam_vars.append(gcam_json["data"][i]["Variable"])
+    gcam_dims.append(gcam_json["data"][i]["DimensionHumanName"])
+    gcam_dicts.append(gcam_json["data"][i]["DictionaryHumanName"])
+
+
+#print(len(gcam_vars), len(gcam_dims), len(gcam_dicts))
+
 
 #initiate flask app
 
@@ -120,7 +131,7 @@ def userGkgP():
         topic.append(data['topic'])
 
     if data['dictionary'] == '':
-        data['dictionary'] = 'empty'
+        data['dictionary'] = 'gcam_data'
         dictionary.append(data['dictionary'])
     else:
         dictionary.append(data['dictionary'])
@@ -227,6 +238,12 @@ def userGkgG():
         if str(country[0]) != 'source_location':
             cassDF_byTime = cassDF_byTime.filter(cassDF_byTime.source_location == str(country[0]))
 
+        if str(dictionary[0]) == 'gcam_data':
+            df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.gcam_data).alias("gcam_data2"))
+            df2 = df2.filter(df2.gcam_data2.isin(gcam_vars))
+            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.gcam_data2)
+
+
         if str(topic[0]) != 'themes':
             df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.themes).alias("themes2"))
             df2 = df2.filter(df2.themes2 == str(topic[0]).upper())
@@ -236,6 +253,8 @@ def userGkgG():
             df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.themes).alias("themes2"))
             df2 = df2.filter(df2.themes2.isin(themes_issue))
             df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.themes2)
+
+
 
         cass_Pandas = df2.toPandas()
         sqlDfList.append(cass_Pandas)
