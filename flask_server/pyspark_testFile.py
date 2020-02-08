@@ -12,6 +12,10 @@ import gcamMapping
 import pandas as pd
 import numpy as np
 from pyspark.sql.functions import explode
+from pyspark.sql.functions import explode_outer
+from pyspark.sql.functions import map_values
+from pyspark.sql.functions import map_keys
+
 
 #import findspark
 #findspark.init()
@@ -62,6 +66,8 @@ for i in range(0, len(gcam_json["data"])):
 
 
 #print(len(gcam_vars), len(gcam_dims), len(gcam_dicts))
+
+gcam_vars = gcam_vars[0:20]
 
 
 #initiate flask app
@@ -211,6 +217,7 @@ def userGkgG():
     paras = paras.replace("'", "")
 
 
+
     #pull data from cassandra table
     cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra")\
     .options(table= "gkg_record_by_day", keyspace = "icore_new")\
@@ -218,7 +225,7 @@ def userGkgG():
 
     if len(month[0]) > 1:
         _start = str(year[0]) + '/'+ str(month[0]) + '/01'
-        _end =  str(year[0]) + '/'+ str(month[0]) + '/30'
+        _end =  str(year[0]) + '/'+ str(month[0]) + '/05'
 
     time_range = pd.date_range(start=_start, end=_end)
     time_range= time_range.values.astype('<M8[D]').astype(str)
@@ -231,6 +238,7 @@ def userGkgG():
 
     sqlDfList = []
 
+
     start_time = time.time()
     for t in time_range:
         cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE gkg_day = '{}'""".format(paras, t))
@@ -239,17 +247,17 @@ def userGkgG():
             cassDF_byTime = cassDF_byTime.filter(cassDF_byTime.source_location == str(country[0]))
 
         if str(dictionary[0]) == 'gcam_data':
-            df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.gcam_data).alias("gcam_data2"))
-            df2 = df2.filter(df2.gcam_data2.isin(gcam_vars))
-            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.gcam_data2)
+            df2 = cassDF_byTime.select([cassDF_byTime.gkg_id if i == 'c5.1' else cassDF_byTime.gcam_data.getItem(i).alias('{}'.format(gcam_dims[gcam_vars.index(i)])) for i in gcam_vars])
+
+            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner')
 
 
-        if str(topic[0]) != 'themes':
+        if str(topic[0]) == 'themesTEST':
             df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.themes).alias("themes2"))
             df2 = df2.filter(df2.themes2 == str(topic[0]).upper())
             df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.themes2)
 
-        if str(issue[0]) != 'issue':
+        if str(issue[0]) == 'issueTEST':
             df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.themes).alias("themes2"))
             df2 = df2.filter(df2.themes2.isin(themes_issue))
             df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.themes2)
@@ -259,6 +267,7 @@ def userGkgG():
         cass_Pandas = df2.toPandas()
         sqlDfList.append(cass_Pandas)
 
+
     #query through a sql context
 
     print(" %s " % (time.time() - start_time))
@@ -267,8 +276,9 @@ def userGkgG():
     sqlDfList_output.to_csv('output_iter_files2.csv')
 
     print(len(sqlDfList_output))
+    print(sqlDfList_output.head(5))
     print(sqlDfList_output.tail(5))
-    print(themes_issue)
+    #print(themes_issue)
 
 
     #print(cassDF_byTime.rdd.getNumPartitions())
