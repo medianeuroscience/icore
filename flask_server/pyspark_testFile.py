@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify   #backend server to communicate data
 from flask_cors import CORS, cross_origin   #allow cross webpage resource sharing
 
-
-
 import os
 import sys
 import time
@@ -12,9 +10,7 @@ import gcamMapping
 import pandas as pd
 import numpy as np
 from pyspark.sql.functions import explode
-from pyspark.sql.functions import explode_outer
-from pyspark.sql.functions import map_values
-from pyspark.sql.functions import map_keys
+
 
 
 #import findspark
@@ -51,23 +47,27 @@ for i in range(0, len(gcam_json["data"])):
 
   if gcam_json["data"][i]["DictionaryHumanName"] == "Moral Foundations Dictionary":
     gcam_vars.append(gcam_json["data"][i]["Variable"])
-    gcam_dims.append(gcam_json["data"][i]["DimensionHumanName"])
+    gcam_dims.append((gcam_json["data"][i]["DimensionHumanName"]))
     gcam_dicts.append(gcam_json["data"][i]["DictionaryHumanName"])
 
   if gcam_json["data"][i]["DictionaryHumanName"] == "Linguistic Inquiry and Word Count (LIWC)":
     gcam_vars.append(gcam_json["data"][i]["Variable"])
-    gcam_dims.append(gcam_json["data"][i]["DimensionHumanName"])
+    gcam_dims.append((gcam_json["data"][i]["DimensionHumanName"]))
     gcam_dicts.append(gcam_json["data"][i]["DictionaryHumanName"])
 
   if gcam_json["data"][i]["DictionaryHumanName"] == "Hogenraad's Motive Dictionary":
     gcam_vars.append(gcam_json["data"][i]["Variable"])
-    gcam_dims.append(gcam_json["data"][i]["DimensionHumanName"])
+    gcam_dims.append((gcam_json["data"][i]["DimensionHumanName"]))
     gcam_dicts.append(gcam_json["data"][i]["DictionaryHumanName"])
 
 
-#print(len(gcam_vars), len(gcam_dims), len(gcam_dicts))
+#gcam_vars.insert(0, 'skip')
+#gcam_dims.insert(0, 'skip')
+#gcam_dicts.insert(0, 'skip')
 
-gcam_vars = gcam_vars[0:20]
+#print(gcam_dicts)
+
+#gcam_vars = gcam_vars[0:10]
 
 
 #initiate flask app
@@ -137,7 +137,7 @@ def userGkgP():
         topic.append(data['topic'])
 
     if data['dictionary'] == '':
-        data['dictionary'] = 'gcam_data'
+        data['dictionary'] = 'empty'
         dictionary.append(data['dictionary'])
     else:
         dictionary.append(data['dictionary'])
@@ -154,23 +154,11 @@ def userGkgP():
     else:
         country.append(data['country'])
 
-    if data['keyword'] == '':
-        data['keyword'] = 'empty'
-        keyword.append(data['keyword'])
-    else:
-        keyword.append(data['keyword'])
-
     if data['issue'] == 'default':
         data['issue'] = 'issue'
         issue.append(data['issue'])
     else:
         issue.append(data['issue'])
-
-    if data['meta'] == '':
-        data['meta'] = 'empty'
-        meta.append(data['meta'])
-    else:
-        meta.append(data['meta'])
 
     if data['format'] == '':
         data['format'] = 'empty'
@@ -200,23 +188,57 @@ def userGkgG():
     time.sleep(1)
 
 
-    parameters = {'gkg_day': str(year[0]), 'source_location': str(country[0]), 'named_entities': str(entity[0]), 'gcam_data': str(dictionary[0]), 'themes': str(topic[0]).upper(),
+    parameters = {'gkg_day': str(year[0]), 'source_location': str(country[0]), 'named_entities': str(entity[0]), 'gcam_data': str(dictionary[0]), 'themes': str(topic[0]),
                   'source': 'source', 'gkg_id': 'gkg_id'}
+
+    user_gcamVars = []
+    user_gcamDims = []
+    #user_gcamDicts = []
+
+    for i in dictionary[0]:
+        if i == 'mfd':
+            for x, m in enumerate(gcam_dicts):
+                if m == 'Moral Foundations Dictionary':
+                    user_gcamVars.append(gcam_vars[x])
+                    user_gcamDims.append(str(gcam_dims[x])+'_MFD')
+
+        if i == 'liwc':
+            for x, m in enumerate(gcam_dicts):
+                if m == 'Linguistic Inquiry and Word Count (LIWC)':
+                    user_gcamVars.append(gcam_vars[x])
+                    user_gcamDims.append(str(gcam_dims[x]) + '_LIWC')
+
+        if i == 'motive':
+            for x, m in enumerate(gcam_dicts):
+                if m == "Hogenraad's Motive Dictionary":
+                    user_gcamVars.append(gcam_vars[x])
+                    user_gcamDims.append(str(gcam_dims[x]) + '_HM')
+
+    user_gcamVars.insert(0, 'skip')
+    user_gcamDims.insert(0, 'skip')
 
     filtered_param = {k: v for (k, v) in parameters.items() if v != 'empty'}
 
     if str(issue[0]) != 'issue':
         themes_issue = issues_dict[str(issue[0]).lower()]
 
+    user_entity = str(entity[0]).split(',')
+
+    user_entity_proc = []
+
+    for i in user_entity:
+        i = i.strip()
+        i = i.lower()
+        user_entity_proc.append(i)
+
+    print(user_entity_proc)
+
     paras = ','.join("{}".format(k) for k, v in filtered_param.items() if v)
-
-    paras_input = ''.join("AND {} = '{}'".format(k,v) for k, v in filtered_param.items() if v)
-
-    paras_list = paras.split(",")
 
     paras = paras.replace("'", "")
 
 
+    #print(user_gcamVars, user_gcamDims)
 
     #pull data from cassandra table
     cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra")\
@@ -225,7 +247,7 @@ def userGkgG():
 
     if len(month[0]) > 1:
         _start = str(year[0]) + '/'+ str(month[0]) + '/01'
-        _end =  str(year[0]) + '/'+ str(month[0]) + '/05'
+        _end =  str(year[0]) + '/'+ str(month[0]) + '/30'
 
     time_range = pd.date_range(start=_start, end=_end)
     time_range= time_range.values.astype('<M8[D]').astype(str)
@@ -245,11 +267,18 @@ def userGkgG():
 
         if str(country[0]) != 'source_location':
             cassDF_byTime = cassDF_byTime.filter(cassDF_byTime.source_location == str(country[0]))
+            #df2 = cassDF_byTime
+            #df2 = df2.drop(cassDF_byTime.gcam_data)
 
-        if str(dictionary[0]) == 'gcam_data':
-            df2 = cassDF_byTime.select([cassDF_byTime.gkg_id if i == 'c5.1' else cassDF_byTime.gcam_data.getItem(i).alias('{}'.format(gcam_dims[gcam_vars.index(i)])) for i in gcam_vars])
-
+        if str(dictionary[0]) != 'empty':
+            df2 = cassDF_byTime.select([cassDF_byTime.gkg_id if i == 'skip' else cassDF_byTime.gcam_data.getItem(i).alias('{}'.format(user_gcamDims[user_gcamVars.index(i)])) for i in user_gcamVars])
+            cassDF_byTime = cassDF_byTime.drop(cassDF_byTime.gcam_data)
             df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner')
+
+        if str(entity[0]) != 'empty':
+            df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.named_entities).alias("entities2"))
+            df2 = df2.filter(df2.entities2.isin(user_entity_proc))
+            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.entities2)
 
 
         if str(topic[0]) == 'themesTEST':
