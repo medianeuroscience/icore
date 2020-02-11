@@ -193,7 +193,6 @@ def userGkgG():
 
     user_gcamVars = []
     user_gcamDims = []
-    #user_gcamDicts = []
 
     for i in dictionary[0]:
         if i == 'mfd':
@@ -228,10 +227,10 @@ def userGkgG():
 
     for i in user_entity:
         i = i.strip()
-        i = i.lower()
+        #i = i.lower()
         user_entity_proc.append(i)
 
-    print(user_entity_proc)
+    print(filtered_param)
 
     paras = ','.join("{}".format(k) for k, v in filtered_param.items() if v)
 
@@ -247,12 +246,14 @@ def userGkgG():
 
     if len(month[0]) > 1:
         _start = str(year[0]) + '/'+ str(month[0]) + '/01'
-        _end =  str(year[0]) + '/'+ str(month[0]) + '/30'
+        _end =  str(year[0]) + '/'+ str(month[0]) + '/05'
 
     time_range = pd.date_range(start=_start, end=_end)
     time_range= time_range.values.astype('<M8[D]').astype(str)
 
     #cassDf = cassDf.repartition(10)
+
+    print(themes_issue)
 
 
     sqlDf = cassDf.registerTempTable('sqlTable')
@@ -273,27 +274,27 @@ def userGkgG():
         if str(dictionary[0]) != 'empty':
             df2 = cassDF_byTime.select([cassDF_byTime.gkg_id if i == 'skip' else cassDF_byTime.gcam_data.getItem(i).alias('{}'.format(user_gcamDims[user_gcamVars.index(i)])) for i in user_gcamVars])
             cassDF_byTime = cassDF_byTime.drop(cassDF_byTime.gcam_data)
-            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner')
+            cassDF_byTime = df2.join(cassDF_byTime, on=['gkg_id'], how='inner')
 
         if str(entity[0]) != 'empty':
             df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.named_entities).alias("entities2"))
             df2 = df2.filter(df2.entities2.isin(user_entity_proc))
-            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.entities2)
+            cassDF_byTime = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.entities2)
 
 
-        if str(topic[0]) == 'themesTEST':
+        if str(topic[0]) != 'themes':
             df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.themes).alias("themes2"))
             df2 = df2.filter(df2.themes2 == str(topic[0]).upper())
-            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.themes2)
+            cassDF_byTime = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.themes2)
 
-        if str(issue[0]) == 'issueTEST':
+        if str(issue[0]) != 'issue':
             df2 = cassDF_byTime.select(cassDF_byTime.gkg_id, explode(cassDF_byTime.themes).alias("themes2"))
             df2 = df2.filter(df2.themes2.isin(themes_issue))
-            df2 = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.themes2)
+            cassDF_byTime = df2.join(cassDF_byTime, on=['gkg_id'], how='inner').drop(df2.themes2)
 
 
 
-        cass_Pandas = df2.toPandas()
+        cass_Pandas = cassDF_byTime.toPandas()
         sqlDfList.append(cass_Pandas)
 
 
@@ -306,8 +307,8 @@ def userGkgG():
 
     print(len(sqlDfList_output))
     print(sqlDfList_output.head(5))
-    print(sqlDfList_output.tail(5))
-    #print(themes_issue)
+    print(sqlDfList_output.themes[0])
+
 
 
     #print(cassDF_byTime.rdd.getNumPartitions())
