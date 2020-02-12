@@ -27,10 +27,10 @@ import pandas as pd
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.datastax.spark:spark-cassandra-connector_2.11:2.3.0 --conf spark.cassandra.connection.host=10.1.3.115 pyspark-shell'
 from pyspark import SparkContext
 
-sc = SparkContext(master="local", appName="article data app")
+#sc = SparkContext(master="local", appName="article data app")
 
 from pyspark.sql import SQLContext
-sqlContext = SQLContext(sc)
+#sqlContext = SQLContext(sc)
 
 #create pyspark application and context
 
@@ -243,6 +243,9 @@ def userGkgG():
 
     time.sleep(1)
 
+    sc = SparkContext(master="local", appName="article data app")
+    sqlContext = SQLContext(sc)
+
     parameters = {'gkg_day': str(year[0]), 'source_location': str(country[0]), 'named_entities': str(entity[0]),
                   'gcam_data': str(dictionary[0]), 'themes': str(topic[0]),
                   'source': 'source', 'gkg_id': 'gkg_id'}
@@ -429,7 +432,7 @@ def userGkgG():
     issue = []
     format = []
 
-    sqlContext.clearCache()
+    sc.stop()
 
     return 'working' + ' '
 
