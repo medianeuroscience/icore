@@ -13,7 +13,7 @@
 
 <form #userForm_all ="ngForm" (ngSubmit)="Submit()" style="text-align: center; padding-left: 5%; padding-right: 5%;">
 
-  <mat-grid-list cols="2" rowHeight="5:1">
+  <mat-grid-list cols="2" rowHeight="4:1">
     <mat-grid-tile>
       <mat-form-field>
         <mat-label>Year</mat-label>
@@ -34,7 +34,7 @@
         <mat-form-field>
           <mat-label>News Source Location</mat-label>
           <mat-select #country="ngModel" name="country" [(ngModel)]="userModel.country">
-            <mat-option value="default"> Choose Location </mat-option>
+            <mat-option value="default"> All Countries </mat-option>
             <mat-option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -63,39 +63,21 @@
 
       <mat-grid-tile>
         <mat-form-field>
-          <mat-label>Topics</mat-label>
+          <mat-label>Themes</mat-label>
           <mat-select #topic="ngModel" name="topic" [(ngModel)] = "userModel.topic" [disabled] = "issue.value !== 'default'">
-          <mat-option value="default"> Choose Topic </mat-option>
+          <mat-option value="default"> Choose Theme </mat-option>
           <mat-option *ngFor="let topic of topics" [value]="topic.name">{{ topic.name }}</mat-option>
           </mat-select>
         </mat-form-field>
       </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Population Level Metrics</mat-label>
-          <mat-select #meta="ngModel" multiple name="meta" [(ngModel)] = "userModel.meta">
-            <mat-option value="pathogens">Pathogen Prevalence </mat-option>
-            <mat-option value="freedom">Press Freedom </mat-option>
-            <mat-option value="democracy">Democracy Index</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
 
 
       <mat-grid-tile>
         <mat-form-field>
-          <mat-label>Entity Search</mat-label>
-          <mat-hint>e.g, donald_trump</mat-hint>
+          <mat-label>Entity Search and FIPS Mapping</mat-label>
+          <mat-hint>e.g, donald trump, twitter, MX, US</mat-hint>
           <input matInput #entity="ngModel" name="entity" [(ngModel)] = "userModel.entity">
-        </mat-form-field>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Keyword Search</mat-label>
-          <mat-hint>e.g, plastic_bag</mat-hint>
-          <input matInput #entity="ngModel" name="keyword" [(ngModel)] = "userModel.keyword">
         </mat-form-field>
       </mat-grid-tile>
 
@@ -103,12 +85,13 @@
       <mat-grid-tile>
         <mat-form-field>
           <mat-label>Data Format</mat-label>
-          <mat-select #format="ngModel" multiple name="format" [(ngModel)] = "userModel.format">
+          <mat-select #format="ngModel" name="format" [(ngModel)] = "userModel.format">
             <mat-option value="csv">Comma-separated Value (CSV) </mat-option>
             <mat-option value="json">Java Script Object Notation (JSON) </mat-option>
           </mat-select>
         </mat-form-field>
       </mat-grid-tile>
+
 
     <mat-grid-tile>
       <mat-form-field>

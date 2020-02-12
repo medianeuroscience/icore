@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   'Health Care', 'Immigration/Refugees', 'International Relations', 'Media/Internet', 'Military', 'Party-politics',
   'Police-System', 'Racism', 'Taxes', 'Terrorism', 'Trade', 'Unemployment'];
 
-  userModel = new User('', '', '', 'default', '', '', 'default', '', 'default', '', '')
+  userModel = new User('', '', '', 'default', '', '', 'default', 'default', '')
   userSubmitted = ''
 
   constructor(private _queryGKG: QueryGKG, private _router: Router){}
