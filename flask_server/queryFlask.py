@@ -170,19 +170,47 @@ def userEventsP():
     global event
     global user_email
     global country
-    #global keyword
     global format
 
     data = request.json
-    year.append(data['year'])
-    month.append(data['month'])
-    if data['event'] != 'default':
-        event.append(data['event'])
-    user_email.append(data['email'])
-    if data['country'] != 'default':
+
+    if data['year'] == '':
+        data['year'] = 'empty'
+        year.append(data['year'])
+    else:
+        year.append(data['year'])
+
+    if data['month'] == '':
+        data['month'] = 'empty'
+        month.append(data['month'])
+    else:
+        month.append(data['month'])
+
+    if data['country'] == 'default':
+        data['country'] = 'source_location'
         country.append(data['country'])
-    #keyword.append(data['keyword'])
-    format.append(data['format'])
+    else:
+        country.append(data['country'])
+
+    if data['email'] == '':
+        data['email'] = 'empty'
+        user_email.append(data['email'])
+    else:
+        user_email.append(data['email'])
+
+    if data['event'] == 'default':
+        data['event'] = 'event'
+        event.append(data['event'])
+    else:
+        event.append(data['event'])
+
+    if data['format'] == '':
+        data['format'] = 'empty'
+        format.append(data['format'])
+    else:
+        format.append(data['format'])
+
+
     return request.json
 
 
@@ -439,87 +467,80 @@ def userGkgG():
 
 @app.route('/api/usereventsg', methods=['GET', 'POST'])
 def userEventsG():
+
     global year
     global month
     global event
     global user_email
     global country
-    global keyword
     global format
 
-    #pull data from cassandra table
-    cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra")\
-    .options(table= "angular_forms", keyspace = "scraped_articles")\
-    .load()\
-    .select('year', 'topics', 'entity', 'dict', 'english', 'month')
+    time.sleep(1)
+
+    sc = SparkContext(master="local", appName="event app")
+    sqlContext = SQLContext(sc)
+
+    parameters = {'event_day': str(year[0]), 'event_id': 'event_id', 'event_tone_avg': 'event_tone_avg', 'num_articles': 'num_articles', 'num_mentions': 'num_mentions', 'num_sources': 'num_sources',
+                  'action_geo_name': 'action_geo_name'}
+
+    filtered_param = {k: v for (k, v) in parameters.items() if v != 'empty'}
+
+    paras = ','.join("{}".format(k) for k, v in filtered_param.items() if v)
+    paras = paras.replace("'", "")
+
+
+
+    # pull data from cassandra table
+    cassDf = sqlContext.read.format("org.apache.spark.sql.cassandra") \
+        .options(table="event_by_day", keyspace="icore_new") \
+        .load()
+
+
+    if len(month[0]) == 2:
+        _start = str(year[0]) + '/' + str(month[0]) + '/01'
+        _end = str(year[0]) + '/' + str(month[0]) + '/30'
+        time_range = pd.date_range(start=_start, end=_end)
+        time_range = time_range.values.astype('<M8[D]').astype(str)
+
+    elif len(month[0]) == 5:
+        _start = str(year[0]) + '/01/01'
+        _end = str(year[0]) + '/12/30'
+        time_range = pd.date_range(start=_start, end=_end)
+        time_range = time_range.values.astype('<M8[D]').astype(str)
+
+
 
     sqlDf = cassDf.registerTempTable('sqlTable')
-    cassDF_byTime = sqlContext.sql("""SELECT * FROM sqlTable WHERE year == '{}'""".format(str(year[0])))
 
-    #query through a sql context
-    cassDF_byTime.toPandas().to_csv('output_files.csv')
+    sqlDfList = []
 
-    #turn pyspark dataframe into pandas and stored as csv on local machine
+    start_time = time.time()
+    for t in time_range:
+        cassDF_byTime = sqlContext.sql("""SELECT {} FROM sqlTable WHERE event_day = '{}'""".format(paras, t))
+
+        cass_Pandas = cassDF_byTime.toPandas()
+        sqlDfList.append(cass_Pandas)
+
+    # query through a sql context
+
+    print(" %s " % (time.time() - start_time))
+
+    sqlDfList_output = pd.concat(sqlDfList)
 
 
-    #set email configurations
-    subject = "Your Query From iCoRe is Here!"             #to be changed
-    body = "Please find attached your requested data."     #to be changed
-    sender_email = "medianeuroscience.sb@gmail.com"        #to be changed
-    receiver_email = str(user_email[0])
-    password = "do100projects"             #to be secured by calling from stored os
+    print(len(sqlDfList_output))
+    print(sqlDfList_output.head(5))
 
 
-    message = MIMEMultipart()
-    message["From"] = sender_email
-    message["To"] = receiver_email
-    message["Subject"] = subject
-
-    #build a multipart message and and establish email headers
-
-    message.attach(MIMEText(body, "plain"))
-    #add body plain text to email
-
-    filename = "output_files.csv"
-    #store email file in local folder
-
-    #open a file in binary mode
-    with open(filename, "rb") as attachment:
-        # add file as application/octet-stream
-        # email client can usually download this automatically as attachment
-        part = MIMEBase("application", "octet-stream")
-        part.set_payload(attachment.read())
-
-    #encode file in ASCII characters to send by email
-    #add header as key/value pair to attachment part
-    encoders.encode_base64(part)
-
-    part.add_header(
-        "Content-Disposition",
-        f"attachment; filename= {filename}",
-    )
-
-    #add attachment to message and convert message to string
-    message.attach(part)
-    text = message.as_string()
-
-    #log in to server using secure context and send email
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, text)
-
-    words = [year, month, event, user_email, country, keyword, format]
 
     year = []
     month = []
     event = []
     user_email = []
     country = []
-    keyword = []
     format = []
 
-    return 'working' + ' ' + str(words)
+    return 'working' + ' '
 
 #extract relevant user inputs for passing into pyspark
 
