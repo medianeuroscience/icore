@@ -50,7 +50,7 @@ export class WorldMapComponent implements OnInit {
         "translate(" + margin.left + "," + margin.top + ")");
 
         // parse the date / time
-    var parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
+    var parseTime = d3.timeParse("%Y-%m-%d");
 
 
 
@@ -75,7 +75,7 @@ export class WorldMapComponent implements OnInit {
             .attr('fill','gray')
 
 
-        d3.csv("assets/us_events_2018.csv").then(events => {
+        d3.csv("http://169.231.235.236:5000/api/eventsDash").then(events => {
 
 
             var data_location = [];
@@ -94,17 +94,11 @@ export class WorldMapComponent implements OnInit {
               var long = parseFloat(d['action_geo_long']);
               var lat = parseFloat(d['action_geo_lat']);
               var tone = parseFloat(d['event_tone_avg']);
-              var event_type = d['event_type'];
+              var event_type = d['event_root_code'];
               var num_articles = parseFloat(d['num_articles']);
               var event_day = d['event_day'];
 
               data_mini.push(long, lat);
-              data_location.push(data_mini);
-              data_tone.push(tone);
-              data_et.push(event_type);
-              data_articles.push(num_articles);
-              data_day.push({
-                date: parseTime(event_day)});
 
               lineData.push({
                 date: event_day,
@@ -160,18 +154,13 @@ export class WorldMapComponent implements OnInit {
 
 
             var line_resultSorted_init = line_result.sort(sortByDateAscending);
-            var line_resultSorted_init = line_resultSorted_init.slice(0, 15);
+            var line_resultSorted_init = line_resultSorted_init.slice(0, 20);
 
-            var bar_resultSorted_init = bar_result.slice(0, 15);
+            var bar_resultSorted_init = bar_result.slice(0, 20);
             var bar_resultSorted_init = bar_resultSorted_init.sort(sortByArticlesAscending);
 
 
-            //console.log(resultSorted);
-
-          //  resultSorted = resultSorted.slice(1).slice(-150)
-
-          //  var resultSorted_init = line_resultSorted.slice(0, 10);
-          //  var barChart_init = bar_resultSorted.slice(0, 10);
+            console.log(bar_resultSorted_init);
 
 
 
@@ -306,7 +295,7 @@ export class WorldMapComponent implements OnInit {
               var circle_location_later = lineData.slice(start, end);
               var circle_location_later_2 = circle_location_later.slice(-1)[0];
 
-              console.log(circle_location_later_2);
+              console.log(bar_resultSorted_later);
 
 
               lineSvg.selectAll('path').remove();
@@ -435,7 +424,7 @@ export class WorldMapComponent implements OnInit {
           init_draw();
 
           var start = 0;
-          var end = 15;
+          var end = 20;
           var count = 0;
 
           this.xt = setInterval(() => {

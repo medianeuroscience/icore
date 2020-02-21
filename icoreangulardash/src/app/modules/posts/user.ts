@@ -5,7 +5,6 @@ export class User {
     public country: string,
     public event: string,
     public email: string,
-    public keyword: string,
     public format: string
   ) {}
 }

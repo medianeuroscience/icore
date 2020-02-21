@@ -14,8 +14,8 @@ const httpOptions = {
 })
 
 export class QuerySurvey {
-  _url = 'http://localhost:5000/api/usersurveysp';
-  _urlview = 'http://localhost:5000/api/usersurveysg';
+  _url = 'http://169.231.235.236/api/usersurveysp';
+  _urlview = 'http://169.231.235.236/api/usersurveysg';
 
   constructor(private _http: HttpClient) { }
 

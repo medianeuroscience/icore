@@ -19,7 +19,7 @@ export class PostsComponent implements OnInit {
   'Threaten', 'Demand', 'Reduce Relations', 'Protest', 'Exhibit Force Posture',
   'Use Conventional Mass Violence'];
 
-  userModel = new User('', '', 'default', 'default', '', '', '')
+  userModel = new User('', '', 'default', 'default', '', '')
   userSubmitted = ''
 
   constructor(private _queryEvent: QueryEvent, private _router: Router) { }

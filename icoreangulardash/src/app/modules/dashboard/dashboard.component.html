@@ -13,11 +13,11 @@
 
 <form #userForm_all ="ngForm" (ngSubmit)="Submit()" style="text-align: center; padding-left: 5%; padding-right: 5%;">
 
-  <mat-grid-list cols="2" rowHeight="4:1">
+  <mat-grid-list cols="2" rowHeight="3:1">
     <mat-grid-tile>
       <mat-form-field>
         <mat-label>Year</mat-label>
-        <mat-hint>e.g,  2019</mat-hint>
+        <mat-hint>The year the news articles were published: e.g., 2019</mat-hint>
         <input matInput #year="ngModel" required name = "userYear" [(ngModel)]="userModel.year">
       </mat-form-field>
     </mat-grid-tile>
@@ -25,7 +25,7 @@
     <mat-grid-tile>
       <mat-form-field>
         <mat-label>Month</mat-label>
-        <mat-hint>e.g,  01-03</mat-hint>
+        <mat-hint>The month the news articles were published: e.g., 03</mat-hint>
         <input matInput #month ="ngModel" name = "month" [(ngModel)]="userModel.month">
       </mat-form-field>
       </mat-grid-tile>
@@ -37,6 +37,7 @@
             <mat-option value="default"> All Countries </mat-option>
             <mat-option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</mat-option>
           </mat-select>
+          <mat-hint>By default, iCoRe returns data for all countries. However, it is advised to be specific with your news source location.</mat-hint>
         </mat-form-field>
       </mat-grid-tile>
 
@@ -48,6 +49,7 @@
               <mat-option value="liwc">Linguistic Inquiry and Wordcount (LIWC) </mat-option>
               <mat-option value="motive">Hogenraad's Motive Dictionary</mat-option>
             </mat-select>
+          <mat-hint>Multiple GCAM dictionaries may be selected.</mat-hint>
         </mat-form-field>
       </mat-grid-tile>
 
@@ -75,8 +77,8 @@
 
       <mat-grid-tile>
         <mat-form-field>
-          <mat-label>Entity Search and FIPS Mapping</mat-label>
-          <mat-hint>e.g, donald trump, twitter, MX, US</mat-hint>
+          <mat-label>Entity Search</mat-label>
+          <mat-hint>Any named entities the articles are mentioning: e.g. donald trump, twitter, US, MX</mat-hint>
           <input matInput #entity="ngModel" name="entity" [(ngModel)] = "userModel.entity">
         </mat-form-field>
       </mat-grid-tile>
